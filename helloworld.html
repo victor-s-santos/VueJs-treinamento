@@ -1,13 +1,35 @@
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<h1><p>Olá Mundo!</p></h1>
-<div class="mydiv">
-<p>
-{{ texto }}<br>
-{{ texto2 }}
-</p>
-<p>
-Meu nome é: {{ texto3 }}<br>
-<input v-on:input="mudarnome">
-</p>
-</div>
-<script type="text/javascript" src="code.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<title>Hello World!</title>
+</head>
+<body>
+    <h1><p>Olá Mundo!</p></h1>
+    <div class="mydiv">
+        <p>
+        {{ texto }}<br>
+        {{ texto2 }}
+        </p>
+        <p>
+        Meu nome é: {{ texto3 }}<br>
+        <input v-on:input="mudarnome">
+        </p>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+        el:".mydiv",
+    data:{
+        texto: "Olá VueJS!",
+        texto2: "Olá VueJS 2!",
+        texto3: ""
+    },
+    methods:{
+        mudarnome: function(event){
+            this.texto3 = event.target.value;
+        }
+    }
+    });
+    </script>    
+</body>
+</html>
