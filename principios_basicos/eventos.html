@@ -11,6 +11,20 @@
 <p>Entre com seu nome:</p>
 <input v-on:blur="completar_nome('Seu nome é:', $event)">
 <p>{{ nome }}</p>
+<br>
+<br>
+<p v-on:click.stop="clicou('p', $event)">Captura Elementos
+<button v-on:click.stop="clicou('button', $event)">Clique em mim</button>
+</p>
+<form>
+    <input type="text">
+    <button type="submit" v-on:click="enviar">Sem modificador</button>
+    <button type="submit" v-on:click.prevent="enviar">Com modificador</button>
+    <br>
+    <input v-on:keyup.ctrl.enter.exact="onKey"placeholder="Tecla pra cima + ctrl + enter">
+    <br>
+    <input v-on:keyup.v.s="onKey"placeholder="Tecla V ou S">
+</form>
 </div>
 <script type="text/javascript">
 new Vue({
@@ -33,7 +47,20 @@ new Vue({
             this.pos_y = event.clientY;
         },
         completar_nome: function(texto, event){
-            this.nome = texto + event.target.value;
+            if(event.target.value !== ''){
+                this.nome = texto + event.target.value;
+            }else{
+                this.nome = this.nome;
+            }
+        },
+        clicou: function(elemento, event){
+            console.log(event.type, ":", elemento);
+        },
+        enviar: function(event){
+            console.log("Formulário enviado com sucesso!")
+        },
+        onKey: function(event){
+            console.log(`Teclas ${event.key} pressionadas`)
         }
     }
 });

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Manipulação de eventos</title>
+</head>
+<body>
+<div id="mydiv">
+    <button v-on:click="clicou">Clica com o btn direito</button>
+    <p v-on:click.middle="clicou2">Clique com o btn do meio do mouse
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    ...
+    </p>
+    <p v-on:click.right.prevent="clicou2">Clique com o btn direito
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        ...
+        </p>
+        <p v-on:click.left="clicou2">Clique com o btn esquerdo mouse
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    ...
+    </p>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: "#mydiv",
+        methods:{
+            clicou: function(event){
+                console.log(`O botão ${event.button} foi clicado!`);
+            },
+            clicou2: function(event){
+                if(event.button === 0){
+                    console.log('Clicou com o btn esquerdo!', event)
+                }else if(event.button == 1){
+                    console.log(`Clicou com o btn do meio!`, event)
+                }else{
+                    console.log(`Clicou com o btn direito!`, event)
+                }
+            }
+
+        }
+    })
+</script>
+</body>

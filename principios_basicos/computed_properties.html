@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Computed Properties</title>
+</head>
+<body>
+<div id="mydiv">
+    <p>Meu github:<a :href="github">Github</a>
+    <p>Invertido: {{ github }} -> {{ github.split('').reverse('').join('') }}</p>
+    <p>Boas práticas: {{ github }} -> {{ inversor }}</p>
+    <p>Insira seu github:</p>
+    <input @keyup.enter="mudanome">
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        github: "https://github.com/victor-s-santos",
+    },
+    computed: {
+        inversor: function(){
+            return this.github.split('').reverse('').join('');
+        }
+    },
+    methods: {
+        mudanome: function(event){
+            this.github = event.target.value;
+        }
+    }
+})
+</script>
+</body>
+</html>

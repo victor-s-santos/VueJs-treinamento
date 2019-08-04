@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>v-bind e v-on</title>
+</head>
+<body>
+<div id="mydiv">
+    <a v-bind:href="github">Github</a>
+    <br>
+    <button v-on:click="clicou">Clique aqui!</button>
+    <hr>
+    <a :href="github">Github</a>
+    <br>
+    <button @click="clicou">Clique aqui!</button>
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    methods:{
+        clicou: function(event){
+            console.log(`O botão ${event.button} foi clicado!`);
+        },
+    },
+    data:{
+        github: "https://github.com/victor-s-santos",
+    },
+});
+</script>
+</body>
+</html>
