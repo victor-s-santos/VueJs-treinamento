@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Data Binding de Atributos</title>
+</head>
+<body>
+  <div id="app">
+      <p>Trazendo valores ao Dom</p>
+      {{ valores }}
+      <p>Outra forma:</p>
+      <h1><span v-text="valores"></span></h1>
+      <p>E fazendo com atributos(no caso, href)</p>
+      <a href="{{ github }}">Github</a>
+      <br>
+      <p>E da forma correta:</p>
+      <a v-bind:href="github">Github</a>
+      <br>
+      <p>Trazendo strings:</p>{{ nome }}
+      <p>Trazendo funções:</p>{{ pegaNome() }}
+  </div>  
+  <script type="text/javascript">
+  new Vue({
+      el:"#app",
+      data:{
+          valores: "Interpolação de strings",
+          github: "https://github.com/victor-s-santos",
+          nome: "Victor Santos Silva"
+      },
+      methods:{
+          pegaNome: function(){
+              this.name = "Suelen Simões Costa";
+              return this.name;
+
+          }
+      }
+  })
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Manipulação de eventos</title>
+</head>
+<body>
+<div id="mydiv" v-on:mouseover="posicaomouse">
+<button v-on:click="adicionar" v-on:mouseover="subtrair">Clique-me</button>
+<p>Botão clicado: {{ cliques }} vezes!</p>
+<p>Coordenadas x: {{ pos_x }} e y: {{ pos_y }}</p>
+<p>Entre com seu nome:</p>
+<input v-on:blur="completar_nome('Seu nome é:', $event)">
+<p>{{ nome }}</p>
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        cliques: 0,
+        pos_x: 0,
+        pos_y:0,
+        nome: '',
+    },
+    methods:{
+        adicionar: function(event){
+            this.cliques ++;
+        },
+        subtrair: function(event){
+            this.cliques --;
+        },
+        posicaomouse: function(event){
+            this.pos_x = event.clientX;
+            this.pos_y = event.clientY;
+        },
+        completar_nome: function(texto, event){
+            this.nome = texto + event.target.value;
+        }
+    }
+});
+</script>    
+</body>
+</html>
