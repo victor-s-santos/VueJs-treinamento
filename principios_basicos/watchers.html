@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Watchers vs computed Properties</title>
+</head>
+<body>
+<div id="mydiv">
+    <li>Nome: {{ nome_completo }}</li>
+    <li>Primeiro Nome: {{ primeiro_nome }}</li>
+    <li>Último Nome: {{ ultimo_nome }}</li>
+    <button @click="alterarnomes">Alterar nomes</button>
+    
+
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data: {
+        primeiro_nome: 'Victor',
+        nome_do_meio: 'Santos',
+        ultimo_nome: 'Silva',
+        //nome_completo: 'Victor Santos Silva',
+    },
+    // watch:{
+    //     nome_do_meio: function(novo_valor, valor_antigo){
+    //         this.nome_completo = novo_valor + ' ' + this.nome_do_meio;
+    //     },
+    //     primeiro_nome: function(novo_valor, valor_antigo){
+    //         this.nome_completo = this.primeiro_nome + ' ' + novo_valor;
+    // },
+    // },
+    //usando watchers, a variável nome_completo muda, sem watchers muda apenas os outros dois nomes
+    methods:{
+        alterarnomes: function(event){
+            this.primeiro_nome = 'Suelen';
+            this.ultimo_nome = 'Costa';
+        }
+    },
+    computed:{
+        nome_completo: function(){
+            return this.primeiro_nome + ' ' + this.ultimo_nome;
+        }
+    }
+    //computed properties resolve isso de forma mais simples^^
+})
+
+</script>
+</body>
+</html>

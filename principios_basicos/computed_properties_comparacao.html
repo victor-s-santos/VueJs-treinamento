@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Computed Properties</title>
+</head>
+<body>
+<div id="mydiv">
+    <li>Nome original: {{ nome }}</li>
+    <li>Nome invertido (computed): {{ inversor_computed }}</li>
+    <li>Nome invertido (method): {{ inversor_method() }}</li>
+    <input @keyup.enter="alterador_de_nome">
+    <li>Nome: {{ nome_inteiro ? "Victor Santos Silva" : "Victor" }}</li>
+    <button @click="nome_inteiro = !nome_inteiro">Altera nome</button>
+</div>
+
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        nome: "Victor",
+        nome_inteiro: false,
+    },
+    methods: {
+        alterador_de_nome: function(event){
+            this.nome = event.target.value;
+        },
+        inversor_method: function(){
+            console.log("Executado method")
+            return this.nome.split('').reverse().join("");
+        }
+    },
+    computed:{
+        inversor_computed: function(){
+            console.log("Executado computed")
+            return this.nome.split('').reverse().join('');
+        }
+    }
+})//assim podemos ver que a computed propertie somente é executada se a dependência mudar,
+//ou seja, se eu fornecer um novo nome no input
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Watchers wins!</title>
+</head>
+<body>
+<div id="mydiv">
+<p>Nome do dog mais lindo do mundo: {{ pet }}</p>
+<button @click="mudarnome">Mudar nome do bonitão.</button>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        pet: "Noob",
+    },
+    watch: {
+        pet: function(novo, antigo){
+            let self = this;//gambiarra
+            setTimeout(function(){
+                self.pet = "Dunga";
+            }, 4000);
+        }
+    },
+    methods:{
+        mudarnome: function(event){
+            this.pet = "Aguarde enquanto o pet termina sua ração...";
+        }
+    }
+//faltou criatividade da minha parte...
+})
+</script>
+</body>
+</html>
