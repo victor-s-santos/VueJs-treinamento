@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Two Way Data Binding</title>
+</head>
+<body>
+    <div id="mydiv">
+        <!--<input :value="pet" @input="pet = $event.target.value">-->
+        <input v-model="pet">
+        <li>O nome da fera: {{ pet }}, tenha cuidado!</li>
+    </div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        pet: "Noob Saibot",
+    }
+})
+//desta forma a variável pet é atualizada de forma reativa(no momento que 
+//é inserido um novo valor de input, ela recebe este valor)
+</script>    
+</body>
+</html>

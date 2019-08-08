@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Estilização Dinâmica</title>
+    <style>
+        .retangulo{
+            height: 300px;
+            width:200px;
+            background-color: cornflowerblue;
+            display: inline-block;
+        }
+        .coral{
+            background-color: chartreuse;
+        }
+        .azul{
+            background-color: blueviolet;
+        }
+        .vermelho{
+            background-color: red;
+        }
+        .verde{
+            background-color: greenyellow;
+        }
+        .circulo{
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv">
+    <div 
+        class="retangulo"
+        :class="classesCSS"
+        @click="aplicarClasse = !aplicarClasse">
+    </div>
+    <input v-model="nomeClasse" placeholder="Nome da cor!">
+    <li>Utilizando Arrays:</li>
+    <div 
+    class="retangulo"
+    :class="['circulo', nomeClasse, { verde: aplicarClasse } ]"
+    @click="aplicarClasse = !aplicarClasse">
+</div>
+    <div 
+        class="retangulo"
+        :class="['circulo', nomeClasse, { verde: !aplicarClasse }]">
+    </div>
+    </div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{ 
+        aplicarClasse: false,
+        nomeClasse: "",
+},
+    computed:{
+        classesCSS: function(){
+            return{
+                azul: this.aplicarClasse,
+                circulo: this.aplicarClasse,
+                vermelho: !this.aplicarClasse,
+            };
+        }
+
+    }
+//Tá uma bagunça aqui^^
+})
+</script>
+</body>
+</html>

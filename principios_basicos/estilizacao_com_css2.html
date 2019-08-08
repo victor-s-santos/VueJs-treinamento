@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Estilização Dinâmica</title>
+    <style>
+        .retangulo{
+            height: 300px;
+            width:200px;
+            background-color: cornflowerblue;
+            display: inline-block;
+        }
+        .coral{
+            background-color: chartreuse;
+        }
+        .azul{
+            background-color: blueviolet;
+        }
+        .vermelho{
+            background-color: red;
+        }
+        .verde{
+            background-color: greenyellow;
+        }
+        .circulo{
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv">
+        <input v-model="nomeClasse" placeholder="Nome da cor!">
+        <div 
+        class="retangulo"
+        :class="{ coral: aplicarClasse }"
+        @click="aplicarClasse = !aplicarClasse">
+    </div>
+    <div 
+    class="retangulo"
+    :class="nomeClasse"
+    ></div>
+    </div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{ 
+        aplicarClasse: false,
+        nomeClasse: "",
+}
+//quando eu clicar no retângulo, automaticamente aplicarClasse recebe a negação dela mesma, de true pra false, ou de false pra true
+})
+</script>
+</body>
+</html>

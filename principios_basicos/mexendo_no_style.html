@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta charset="UTF-8">
+    <title>Mexendo no style com vuejs/title></title>
+    <style>
+    #mydiv div{
+        display: inline-block;
+        margin-right: 10px;
+        background-color: gray;
+    }
+    </style>
+</head>
+<body>
+<p><h2>Neste exemplo, pode-se averiguar as duas maneiras de passar valores as propriedades:</h2>
+<li>Manualmente, através de um array;</li>
+<li>Ou usando as Computed Properties</li></p>
+<div id="mydiv">
+    <div 
+    style="width: 200px; height: 200px"
+    :style="{ 'background-color': cor, height: altura + 'px', width: largura + 'px' }"
+    ></div>
+    <input v-model="cor" placeholder="Cor">
+    <input v-model="altura" placeholder="Altura">
+    <input v-model="largura" placeholder="Largura">
+<br><br>
+    <input v-model="cor2" placeholder="Cor">
+    <input v-model="altura2" placeholder="Altura">
+    <input v-model="largura2" placeholder="Largura">
+    <div :style="estilosCSS"></div>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        cor: '',
+        altura: 200,
+        largura: 200, 
+        cor2: 'darkblue',
+        altura2: 250,
+        largura2: 150, 
+    },
+    computed:{
+        estilosCSS: function(){
+            return {
+                backgroundColor: this.cor2,
+                height: this.altura2 + 'px',
+                width: this.largura2 + 'px',
+            }
+        }
+    }
+//duas maneiras possíveis de fazer 
+//verifica-se que qunado nenhum valor é passado, assume-se os valores contidos em data 
+})
+
+</script>
+</body>
+</html>
