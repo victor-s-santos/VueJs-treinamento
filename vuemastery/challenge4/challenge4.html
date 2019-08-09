@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Challenge 4</title>
+</head>
+<body>
+    <div class="nav-bar"></div>
+    <div id="app">
+  
+        <div class="product">
+        
+          <div class="product-image">
+            <img :src="image" />
+          </div>
+      
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <span v-if="onSale">On Sale!</span>
+            <p><h2>Details</h2></p>
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <p><h2>Color:</h2></p>
+            <div v-for="variant in variants" :key="variant.variantId">
+                <p>{{ variant.variantColor }}</p>
+            </div>
+          </div>
+          
+        </div>
+      </div> 
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            alttext: 'A pair of wonderful Socks',
+            product: 'Socks',
+            inStock: true,
+            image: "https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg",
+            onSale: true,
+            details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+            variants: [
+        {
+            variantId: 2234,
+            variantColor: 'green'    
+        },
+        {
+            variantId: 2235,
+            variantColor: 'blue'
+        }
+        ]
+        }, 
+    })
+//in this case, we have to work with a list of keys {}
+//Add an onSale property to the product’s data that is used to conditionally render a span that says “On Sale!”
+    </script>
+</body>
+</html>

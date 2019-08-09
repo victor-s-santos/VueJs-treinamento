@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Challenge 3</title>
+</head>
+<body>
+    <div class="nav-bar"></div>
+    <div id="app">
+  
+        <div class="product">
+        
+          <div class="product-image">
+            <img :src="image" />
+          </div>
+      
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <span v-if="onSale">On Sale!</span>
+          </div>
+          
+        </div>
+      </div> 
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            alttext: 'A pair of wonderful Socks',
+            product: 'Socks',
+            inStock: true,
+            image: "https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg",
+            onSale: true,
+        }, 
+    })
+//Add an onSale property to the product’s data that is used to conditionally render a span that says “On Sale!”
+    </script>
+</body>
+</html>
