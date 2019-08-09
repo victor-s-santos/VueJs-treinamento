@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta charset="UTF-8">
+    <title>Renderização Condicional</title>
+</head>
+<body>
+<div id="mydiv">
+    <li v-if="boleano1">Olá Mundo em VueJs!</li>
+    <li>Adeus Mundo em VueJs!</li>
+    <button @click="boleano1 = !boleano1">Show</button>
+    <br>
+    <br>
+    <li v-if="boleano2">Olá Mundo em VueJs!</li>
+    <li v-else>Adeus Mundo em VueJs!</li>
+    <!--O v-else faz com que a tag posterior ao v-if receba o valor contrário-->
+    <button @click="boleano2 = !boleano2">Change</button>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        boleano1: false,
+        boleano2: false,
+    }
+});
+</script>
+</body>
+</html>

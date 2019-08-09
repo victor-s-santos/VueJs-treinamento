@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Reutilização de Elementos com VueJs</title>
+</head>
+<body>
+<div id="mydiv">
+    <button @click="logado = !logado">Alternar</button>
+    <template v-if="logado">
+        <label>Login:</label>
+        <input placeholder="Entre com seu login:" key="login">
+    </template>
+    <template v-else>
+        <label>Email:</label>
+        <input placeholder="Entre com seu email:" key="email">
+
+    </template>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        logado: false,
+    }
+})
+//neste exemplo o vuejs faz somente a renderização necessária
+//dos elementos, ao invés da página inteira.
+//o uso do argumento key no input evita a renderização do mesmo input
+</script>
+</body>
+</html>

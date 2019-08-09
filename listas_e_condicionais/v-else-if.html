@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Uso de v-else-if</title>
+</head>
+<body>
+<div id="mydiv">
+    <input v-model="nota" placeholder="Coloque aqui a nota">
+    <li v-if="nota === 'A'">Meus parabéns, você alcançou um A</li>
+    <li v-else-if="nota === 'B'">Você foi muito bem, você conseguiu um B</li>
+    <li v-else-if="nota === 'C'">E, não foi tão bem assim, ficou com C</li>
+    <li v-else-if="nota === 'D'">Só Deus na causa, tirou um D</li>
+    <li v-else>As notas estão vindo de camêlo, por favor aguarde!</li>
+</div>
+
+
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        nota: '',
+    }
+})
+//exemplo simples de manipulação das condicionais
+</script>    
+</body>
+</html>

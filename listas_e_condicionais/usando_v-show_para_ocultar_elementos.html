@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta charset="UTF-8">
+    <title>Usando a diretiva v-show, para ocultar, ao invés de remover.</title>
+</head>
+<body>
+<div id="mydiv">
+<p v-show="boleano">{{nome}}</p>
+<button @click="boleano = !boleano">Alterar valor boleano</button>
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        nome: 'Victor',
+        boleano: false,
+    }
+});
+//neste caso, a tag html possui sua propriedade display mudada,
+//nenhum elemento é removido do template
+</script>
+</body>
+</html>
