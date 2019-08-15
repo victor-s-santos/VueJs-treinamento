@@ -32,17 +32,18 @@
                 <p v-html="usa"></p>
         </div>
         <br>
-        <p>Maneira otimizada:</p>
-        <input v-model='country'>
-        <div>
-            <p v-html='country'></p>
-        </div>
-
+        <p>Maneira utilizando components:</p>
+        <country :name="uk"></country>
     </div>
 <script type="text/javascript">
 function flags(country){
     return `<img src='flags/${country}.png' />`;
 }
+
+Vue.component("country", {
+    props: ['name'],
+    template:`<li v-html="name"></li>` 
+});
 let app = new Vue({
     el:"#mydiv",
     data:{
@@ -55,7 +56,7 @@ let app = new Vue({
         china: flags('china'),
     }
 });
-app.country = 'china';
+app.country = 'brazil';
 </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Lista de Contatos</title>
+</head>
+<body>
+    <div id="mydiv">
+        <input v-model="nome" placeholder="Insira o nome a ser adicionado:">
+        <button @click='adiciona'>Adicionar</button>
+        <div class="lista">
+            <ul>
+                <li v-for="nome_inserido in lista">{{nome_inserido}}</li>
+            </ul>
+            <h2><li>Total de nomes: {{ lista.length }}</li></h2>
+        </div>
+    </div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        nome: "",
+        lista: [],
+    },
+    methods:{
+        adiciona: function(){
+            if(this.nome !== ''){
+                this.lista.push(this.nome);
+                this.nome = '';
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>
