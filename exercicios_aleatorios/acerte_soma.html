@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Acerte a Soma dos dois Números</title>
+</head>
+<body>
+    <div id="mydiv">
+    {{ aleatorio1 }} + {{ aleatorio2 }}
+    
+    <input v-model="resultado" placeholder="Coloque aqui o resultado">
+    <li v-if="aleatorio1 + aleatorio2 !== parseInt(resultado)">A soma está errada!</li>
+    <li v-if="aleatorio1 + aleatorio2 === parseInt(resultado)">A soma está certa!</li>  
+    </div>
+<script type="text/javascript">
+n = Math.floor(Math.random()*50)
+    new Vue({
+        el: "#mydiv",
+        data:{
+            nome: "Victor",
+            resultado: 0,
+            aleatorio1: Math.floor(Math.random()*50),
+            aleatorio2: Math.floor(Math.random()*50),
+        },
+    //melhorar o código, fazendo com que a condição seja verificada apenas quando o mouse 
+    //estiver fora do input
+    })
+</script>
+</body>
+</html>

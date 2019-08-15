@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Lista das Bandeiras</title>
+</head>
+<body>
+    <div id="mydiv">
+        <p>Listando todos os países:</p>
+        <div v-html="argentina"></div>
+        <div v-html="brazil"></div>
+        <div v-html="usa"></div>
+        <div v-html="uk"></div>
+        <div v-html="china"></div>
+        <br>
+        <p>Usando condicionais:</p>
+        <input v-model='country'>
+        <div v-if="country === 'argentina'">
+            <p v-html="argentina"></p>
+        </div>
+        <div v-if="country === 'china'">
+            <p v-html="china"></p>
+        </div>
+        <div v-if="country === 'brazil'">
+            <p v-html="brazil"></p>
+        </div>
+        <div v-if="country === 'uk'">
+            <p v-html="uk"></p>
+        </div>
+        <div v-if="country === 'usa'">
+                <p v-html="usa"></p>
+        </div>
+        <br>
+        <p>Maneira otimizada:</p>
+        <input v-model='country'>
+        <div>
+            <p v-html='country'></p>
+        </div>
+
+    </div>
+<script type="text/javascript">
+function flags(country){
+    return `<img src='flags/${country}.png' />`;
+}
+let app = new Vue({
+    el:"#mydiv",
+    data:{
+        nome: "Victor",
+        country:'',
+        argentina: flags('argentina'),
+        brazil: flags('brazil'),
+        uk: flags('uk'),
+        usa: flags('usa'),
+        china: flags('china'),
+    }
+});
+app.country = 'china';
+</script>
+</body>
+</html>
