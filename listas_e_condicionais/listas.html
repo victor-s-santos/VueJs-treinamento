@@ -15,12 +15,19 @@
         <input v-model='nome' v-on:keyup.enter="inserir">
         <button @click="inserir">Inserir novo nome</button>
     </ul>
+    <br>
+    <ul>
+        <li v-for="pessoa in lista_pessoas">
+            {{pessoa.nome}}, {{pessoa.idade}} anos
+        </li>
+    </ul>
     </div>
 <script type="text/javascript">
 new Vue({
     el:"#mydiv",
     data:{
         nome:'',
+        idade:'',
         lista_nomes:[
             'Suelen',
             'Noob',
@@ -31,13 +38,21 @@ new Vue({
             'Victor',
             'Megui'
         ],
+        lista_pessoas:[
+            {nome: 'Victor', idade: 25},
+            {nome:'Suelen', idade: 23},
+            {nome: 'Noob', idade: 2},
+            {nome: 'Mel', idade: 200},
+            {nome: 'Katrina', idade: '>1'},
+            {nome: 'Dunga', idade: 6}
+        ]
     },
     methods:{
         inserir: function(){
             if(this.nome !== ''){
                 this.lista_nomes.push(this.nome);
                 this.nome = '';
-            }
+            },
         }
     }
 })
