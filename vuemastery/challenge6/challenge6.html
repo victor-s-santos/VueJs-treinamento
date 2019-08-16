@@ -7,49 +7,43 @@
 </head>
 <body>
     <div class="nav-bar"></div>
-
     <div id="app">
+  
+        <div class="product">
+        
+          <div class="product-image">
+            <img :src="image" />
+          </div>
       
-      <div class="product">
-            
-        <div class="product-image">
-          <img :src="image" />
-        </div>
-    
-        <div class="product-info">
-          <h1>{{ product }}</h1>
-          <p v-if="inStock">In Stock</p>
-          <p v-else>Out of Stock</p>
-    
-          <ul>
-            <li v-for="detail in details">{{ detail }}</li>
-          </ul>
-            <div class="color-box"
-                 v-for="variant in variants" 
-                 :key="variant.variantId"
-                 :style="{ backgroundColor: variant.variantColor }"
-                 @mouseover="updateProduct(variant.variantImage)"
-                 >
-            </div> 
-    
-            <button v-on:click="addToCart" 
-              :disabled="!inStock"
-              :class="{ disabledButton: !inStock }"
-              >
-            Add to cart
-            </button>
-    
-            <div class="cart">
-              <p>Cart({{ cart }})</p>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <span v-if="onSale">On Sale!</span>
+            <p><h2>Details</h2></p>
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>
+            <p><h2>Color:</h2></p>
+            <h3>
+            <div class="colorbox" v-for="variant in variants" 
+                :key="variant.variantId"
+                :style="{ backgroundColor: variant.variantColor }">
+                <li @mouseover="updateProduct(variant.variantImage)">
+                </li>
+                <br>
             </div>
-    
-          </div> 
-        
-      </div>
-        
-    </div> 
-    
-
+            </h3>
+          </div>
+        </div>
+        <div class="cart">
+            <p><h2>Cart({{ cart }})</h2></p>
+        </div>
+        <button @click="addToCart"
+                :disabled="!inStock"
+                :class="{ disabledButton: !inStock }"><h3>To Buy</h3></button>
+        <!--So I can change the button opacity when it is disabled -->
+      </div> 
 <script type="text/javascript">
     var app = new Vue({
         el: '#app',
