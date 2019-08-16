@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Trabalhando com listas</title>
+</head>
+<body>
+    <div id="mydiv">
+    <h2>Nomes ou Sobrenomes</h2>
+    <ul>
+        <li v-for="nome in lista_nomes">
+            {{nome}}
+        </li>
+        <input v-model='nome' v-on:keyup.enter="inserir">
+        <button @click="inserir">Inserir novo nome</button>
+    </ul>
+    </div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        nome:'',
+        lista_nomes:[
+            'Suelen',
+            'Noob',
+            'Simões',
+            'Dunga',
+            'Rafael',
+            'Katrina',
+            'Victor',
+            'Megui'
+        ],
+    },
+    methods:{
+        inserir: function(){
+            if(this.nome !== ''){
+                this.lista_nomes.push(this.nome);
+                this.nome = '';
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>
