@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Usando v-if e v-show</title>
+</head>
+<body>
+<div id="mydiv">
+    <button @click="mostrar = !mostrar">Permuta pra false</button>
+    <p v-if="mostrar">Diretiva v-if "{{ mostrar }}"<span>{{ texto }}</span></p>
+    <!--este if renderiza ou destrói os elementos do template-->
+    <p v-show="mostrar">Diretiva v-show "{{ mostrar }}"<span>{{ texto }}</span></p>
+    <!--o v-show apenas muda a propriedade do elemento mudando assim sua visibilidade -->
+    <input v-model="texto">
+</div>
+<script type="text/javascript">
+new Vue({
+    el:"#mydiv",
+    data:{
+        mostrar: true,
+        nome:"Victor",
+        texto:"Olá"
+    }
+})
+</script>
+</body>
+</html>

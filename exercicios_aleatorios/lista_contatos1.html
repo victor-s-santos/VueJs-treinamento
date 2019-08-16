@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="mydiv">
-        <input v-model="nome" placeholder="Insira o nome a ser adicionado:">
+        <input v-model="nome" v-on:keyup.enter='adiciona' placeholder="Insira o nome a ser adicionado:">
         <button @click='adiciona'>Adicionar</button>
         <div class="lista">
             <ul>
