@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>V-for e V-if para filtrar arrays</title>
+</head>
+<body>
+<div id="mydiv">
+    <h3>{{nome}}</h3>
+    <p><h2>Aqui está uma lista das disciplinas do capiroto:</h2></p>
+    <ul>
+        <li v-for="capiroto in disciplinas_do_capiroto" :key="capiroto.id">{{capiroto.titulo}}</li>
+    </ul>
+    <p><h2>Fazendo filtragem pelo parâmetro "completa":</h2></p>
+    <ul>
+        <li v-for="capiroto in disciplinas_do_capiroto" :key="capiroto.id" v-if="capiroto.completa">{{capiroto.titulo}}</li>
+        <!--Como completa é um parâmetro booleano, esta simples adição resolve-->
+    </ul>
+    <p><h2>Fazendo filtragem pelo parâmetro "incompleta":</h2></p>
+    <ul>
+        <li v-for="capiroto in disciplinas_do_capiroto" :key="capiroto.id" v-if="!capiroto.completa">{{capiroto.titulo}}</li>
+        <!--Como completa é um parâmetro booleano, acrescenta !, e o valor é a negação-->
+        <!--Nos dois casos, os itens removidos ficam como comentários no template. Solução: usar computed properties-->
+    </ul>
+    <br>
+    <br>
+    <p><h2>Usando Computed Properties, retornando somente disciplinas completas</h2></p>
+    <ul>
+        <li v-for="capiroto in disciplinasCompletas" :key="capiroto.id">{{capiroto.titulo}}</li>
+        <!--as disciplinas eliminadas não são retornadas como comentários-->
+    </ul>
+    <p><h2>Usando Computed Properties, retornando somente disciplinas incompletas</h2></p>
+    <ul>
+        <li v-for="capiroto in disciplinasIncompletas" :key="capiroto.id">{{capiroto.titulo}}</li>
+    </ul>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        nome: "Victor",
+        disciplinas_do_capiroto: [
+            {id: 0, titulo: "Cálculo Diferencial e Integral 2", completa: true},
+            {id: 1, titulo: "Álgebra Linear", completa: true},
+            {id: 2, titulo: "Eletromagnetismo", completa: false},
+            {id: 3, titulo: "Mecânica Clássica", completa: false},
+            {id: 4, titulo: "Mecânica Quântica", completa: true},
+            {id: 5, titulo: "Física do Estado Sólido", completa: false}
+        ]
+    },
+    computed:{
+        disciplinasCompletas: function(){
+            return this.disciplinas_do_capiroto.filter(function(disciplina){
+                return disciplina.completa;
+            })
+        },
+        disciplinasIncompletas: function(){
+            return this.disciplinas_do_capiroto.filter(function(disciplina){
+                return !disciplina.completa;
+            })
+        }
+    }
+})
+</script>
+</body>
+</html>
