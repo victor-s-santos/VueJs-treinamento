@@ -18,8 +18,12 @@
           <div class="product-info">
             <h1>{{ title }}</h1>
             <p v-if="inStock">In Stock</p>
+            <!--
             <p v-else :classe="{ outOfStock: !inStock }">Out of Stock</p>
             <span v-if="onSale">On Sale!</span>
+            -->
+            <p v-else>Out of Stock</p>
+            <p>{{sale}}</p>
             <p><h2>Details</h2></p>
             <ul>
                 <li v-for="detail in details">{{detail}}</li>
@@ -52,6 +56,7 @@
             alttext: 'A pair of wonderful Socks',
             product: 'Socks',
             brand: 'Vue Mastery',
+            //inStock: true,
             onSale: true,
             details: ['80% cotton', '20% polyester', 'Gender-neutral'],
             selectedVariant: 0,
@@ -89,8 +94,14 @@
             },
             inStock(){
                 return this.variants[this.selectedVariant].variantQuantity
+            },
+            sale() {
+            if (this.onSale) {
+                return `${this.brand} ${this.product} are on sale!`
+            } 
+                return  `${this.brand} ${this.product} unfortunately are not on sale...`
             }
-        } 
+        }   
     })
     </script>
 </body>
