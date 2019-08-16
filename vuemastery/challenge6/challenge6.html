@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Challenge 6</title>
+</head>
+<body>
+    <div class="nav-bar"></div>
+
+    <div id="app">
+      
+      <div class="product">
+            
+        <div class="product-image">
+          <img :src="image" />
+        </div>
+    
+        <div class="product-info">
+          <h1>{{ product }}</h1>
+          <p v-if="inStock">In Stock</p>
+          <p v-else>Out of Stock</p>
+    
+          <ul>
+            <li v-for="detail in details">{{ detail }}</li>
+          </ul>
+            <div class="color-box"
+                 v-for="variant in variants" 
+                 :key="variant.variantId"
+                 :style="{ backgroundColor: variant.variantColor }"
+                 @mouseover="updateProduct(variant.variantImage)"
+                 >
+            </div> 
+    
+            <button v-on:click="addToCart" 
+              :disabled="!inStock"
+              :class="{ disabledButton: !inStock }"
+              >
+            Add to cart
+            </button>
+    
+            <div class="cart">
+              <p>Cart({{ cart }})</p>
+            </div>
+    
+          </div> 
+        
+      </div>
+        
+    </div> 
+    
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            cart: 0,
+            alttext: 'A pair of wonderful Socks',
+            product: 'Socks',
+            inStock: true,
+            image: "https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg",
+            onSale: true,
+            details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+            variants: [
+        {
+            variantId: 2234,
+            variantColor: 'green',
+            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg'    
+        },
+        {
+            variantId: 2235,
+            variantColor: 'blue',
+            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg'
+        }
+        ]
+        },
+        methods:{
+            updateProduct: function(variantImage){
+                this.image = variantImage;
+            },
+            addToCart: function(){
+                this.cart += 1;
+            }
+        } 
+    })
+    </script>
+</body>
+</html>
