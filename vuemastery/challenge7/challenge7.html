@@ -16,9 +16,9 @@
           </div>
       
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ title }}</h1>
             <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
+            <p v-else :classe="{ outOfStock: !inStock }">Out of Stock</p>
             <span v-if="onSale">On Sale!</span>
             <p><h2>Details</h2></p>
             <ul>
@@ -26,10 +26,11 @@
             </ul>
             <p><h2>Color:</h2></p>
             <h3>
-            <div class="colorbox" v-for="variant in variants" 
+            <div class="colorbox" 
+                v-for="(variant, index) in variants" 
                 :key="variant.variantId"
                 :style="{ backgroundColor: variant.variantColor }">
-                <li @mouseover="updateProduct(variant.variantImage)">
+                <li @mouseover="updateProduct(index)">
                 </li>
                 <br>
             </div>
@@ -42,7 +43,6 @@
         <button @click="addToCart"
                 :disabled="!inStock"
                 :class="{ disabledButton: !inStock }"><h3>To Buy</h3></button>
-        <!--So I can change the button opacity when it is disabled -->
       </div> 
 <script type="text/javascript">
     var app = new Vue({
@@ -51,29 +51,44 @@
             cart: 0,
             alttext: 'A pair of wonderful Socks',
             product: 'Socks',
-            inStock: true,
-            image: "https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg",
+            brand: 'Vue Mastery',
             onSale: true,
             details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+            selectedVariant: 0,
             variants: [
         {
             variantId: 2234,
             variantColor: 'green',
-            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg'    
+            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
+            variantQuantity: 10,    
         },
         {
             variantId: 2235,
             variantColor: 'blue',
-            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg'
+            variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg',
+            variantQuantity: 0,
         }
         ]
         },
         methods:{
-            updateProduct: function(variantImage){
-                this.image = variantImage;
+            updateProduct: function(index){
+                this.selectedVariant = index;
+                console.log(index);
+                //this.image = variantImage;
             },
             addToCart: function(){
                 this.cart += 1;
+            }
+        },
+        computed:{
+            title(){
+                return `${this.brand}  ${this.product}`
+            },
+            image(){
+                return this.variants[this.selectedVariant].variantImage
+            },
+            inStock(){
+                return this.variants[this.selectedVariant].variantQuantity
             }
         } 
     })
