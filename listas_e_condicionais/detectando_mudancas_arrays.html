@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Detectando mudanças nos Arrays</title>
+</head>
+<body>
+<div id="mydiv">
+    <p><h2>Linguagens de Programação:</h2></p>
+    <li v-for="linguagem in lp" :key="linguagem.id">
+        {{ linguagem.nome }}
+    </li>
+    <input v-model="novo" placeholder="nova linguagem">
+    <button @click="addlp">Adicionar Linguagem</button>
+    <button @click="lp = lp.slice(0, 2)">Fazer slice</button>
+    <button @click="last">Substituir último elemento</button>
+</div>
+<script type="text/javascript">
+new Vue({
+    el: "#mydiv",
+    data:{
+        novo: "",
+        lp: [
+            {id: 0, nome: "NodeJs", javascript: true},
+            {id:1, nome: "VueJs", javascript: true},
+            {id:2, nome: "ReactJs", javascript: true},
+            {id:3, nome: "ReactNative", javascript: true},
+            {id:4, nome: "Python", javascript: false}
+        ]
+    },
+    methods:{
+        addlp: function(event){
+            let id = this.lp.length + 1;
+            //this.lp.push({id: id, nome: `Produto ${id}`});
+            this.lp.push({id: id, nome: this.novo});
+            this.novo = '';
+        },
+        last: function(event){
+            let tamanho = this.lp.length - 1;
+            let nova_lp = {id: (tamanho + 1), nome: this.novo};
+            // this.lp[tamanho] = nova_lp; não funciona, não é reativo
+            Vue.set(this.lp, tamanho, nova_lp);
+            this.novo = '';
+        }
+    }
+})
+</script>
+</body>
+</html>
