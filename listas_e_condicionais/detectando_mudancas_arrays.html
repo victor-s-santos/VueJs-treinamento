@@ -11,7 +11,7 @@
     <li v-for="linguagem in lp" :key="linguagem.id">
         {{ linguagem.nome }}
     </li>
-    <input v-model="novo" placeholder="nova linguagem">
+    <input v-model="novo" placeholder="nova linguagem" v-on:keyup.enter="addlp">
     <button @click="addlp">Adicionar Linguagem</button>
     <button @click="lp = lp.slice(0, 2)">Fazer slice</button>
     <button @click="last">Substituir último elemento</button>
