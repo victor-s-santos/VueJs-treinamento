@@ -13,6 +13,7 @@
         <p><h3>Título lower case: {{ tituloLowerCase }}</h3></p>
         <input v-on:keyup.enter="alterarTitulo" v-model="novoTitulo">
         <button @click="alterarTitulo">Alterar titulo</button>
+        <button @click="alterarTitulo2">Alterar titulo2</button>
     </div>
     <div id="mydiv2">
         <h3 v-if="mostrarMensagem2">Título alterado!</h3>
@@ -20,9 +21,10 @@
         <p><h3>Título lower case: {{tituloLowerCase2}}</h3></p>
         <input v-model="novoTitulo2" v-on:keyup.enter="alterarTitulo2">
         <button @click="alterarTitulo2">Alterar Título2</button>
+        <button @click="alterarTitulo1">Alterar Título1</button>
     </div>
 <script type="text/javascript">
-        new Vue({
+        var app1 = new Vue({
             el: '#mydiv1',
             data: {
                 titulo: 'Instância Vue1',
@@ -32,6 +34,10 @@
             methods: {
                 alterarTitulo: function() {
                     this.titulo = this.novoTitulo;
+                    this.novoTitulo = '';
+                },
+                alterarTitulo2: function(){
+                    app2.titulo2 = this.novoTitulo;
                     this.novoTitulo = '';
                 }
             },
@@ -51,7 +57,7 @@
                 }
             }
         });
-        new Vue({
+        var app2 = new Vue({
             el:"#mydiv2",
             data: {
                 titulo2: 'Instância Vue2',
@@ -66,6 +72,10 @@
             methods:{
                 alterarTitulo2: function(){
                     this.titulo2 = this.novoTitulo2;
+                    this.novoTitulo2 = '';
+                },
+                alterarTitulo1: function(){
+                    app1.titulo = this.novoTitulo2;
                     this.novoTitulo2 = '';
                 }
             },
