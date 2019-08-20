@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <title>Estudos sobre a instância Vue</title>
+</head>
+<body>
+
+    <div id="mydiv1">
+        <h3 v-if="mostrarMensagem">Título alterado!</h3>
+        <p><h2>Título: {{ titulo }}</h2></p>
+        <p><h3>Título lower case: {{ tituloLowerCase }}</h3></p>
+        <input v-on:keyup.enter="alterarTitulo" v-model="novoTitulo">
+        <button @click="alterarTitulo">Alterar titulo</button>
+    </div>
+    <div id="mydiv2">
+        <h3 v-if="mostrarMensagem2">Título alterado!</h3>
+        <p><h2>Título2: {{ titulo2 }}</h2></p>
+        <p><h3>Título lower case: {{tituloLowerCase2}}</h3></p>
+        <input v-model="novoTitulo2" v-on:keyup.enter="alterarTitulo2">
+        <button @click="alterarTitulo2">Alterar Título2</button>
+    </div>
+<script type="text/javascript">
+        new Vue({
+            el: '#mydiv1',
+            data: {
+                titulo: 'Instância Vue1',
+                novoTitulo: '',
+                mostrarMensagem: false
+            },
+            methods: {
+                alterarTitulo: function() {
+                    this.titulo = this.novoTitulo;
+                    this.novoTitulo = '';
+                }
+            },
+            computed: {
+                tituloLowerCase: function() {
+                    return this.titulo.toLowerCase().split(' ').join('-');
+                }
+            },
+            watch: {
+                titulo: function(novoTitulo, antigoTitulo) {
+                    console.log(`Título alterado: de ${antigoTitulo} para ${novoTitulo}`);
+                    this.mostrarMensagem = true;
+                    let self = this;
+                    setTimeout(function () { 
+                        self.mostrarMensagem = false; 
+                    }, 3000);
+                }
+            }
+        });
+        new Vue({
+            el:"#mydiv2",
+            data: {
+                titulo2: 'Instância Vue2',
+                novoTitulo2: '',
+                mostrarMensagem2: false
+            },
+            computed:{
+                tituloLowerCase2: function(){
+                    return this.titulo2.toLowerCase().split(' ').join('-');
+                }
+            },
+            methods:{
+                alterarTitulo2: function(){
+                    this.titulo2 = this.novoTitulo2;
+                    this.novoTitulo2 = '';
+                }
+            },
+            watch:{
+                titulo2: function(novoTitulo2, antigoTitulo2){
+                    console.log(`Título alterado: de ${antigoTitulo2},  para ${novoTitulo2}, `);
+                    this.mostrarMensagem2 = true;
+                    var self = this;
+                    setTimeout(function(){
+                        self.mostrarMensagem2 = false;
+                    }, 2000);
+
+                }
+            }
+        })
+</script>
+</body>
+</html>
