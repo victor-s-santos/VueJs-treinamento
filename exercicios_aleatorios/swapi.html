@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Consumindo a Api do Star Wars usando Axios</title>
+</head>
+<body>
+        <main>
+                <div class="row">
+                    <div class="medium-4 columns" v-for="person in people">
+                        <div class="card">
+                            <div class="card-divider text-center">
+                                {{person.name}}
+                            </div>
+                            <div class="card-section">
+                                <p>
+                                    <em>gender:</em> {{person.gender}}
+                                </p>
+                                <p>
+                                    <em>height:</em> {{person.height}}
+                                </p>
+                                <p>
+                                    <em>hair color:</em> {{person.hair_color}}
+                                </p>
+                                <p>
+                                    <em>eye color:</em> {{person.eye_color}}
+                                </p>
+                                <p>
+                                    <em>birth year:</em> {{person.birth_year}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+<script type='text/javascript'>
+$(document).foundation();
+// Vue + Axios
+const url = 'https://swapi.co/api/people/?format=json';
+new Vue({
+	el: 'main',
+	data: {
+		people: []
+	},
+	methods: {
+		loadPeople() {
+			axios.get(url)
+				.then((response) => {
+					this.people = response.data.results;
+				});
+		}
+	},
+	mounted() {
+		// When the Component is ready fetch the JSON from the Server Backend
+		this.loadPeople();
+	},
+});
+    </script>
+</body>
+</html>
+
+https://codepen.io/bryanlewis/pen/pPbyzL
