@@ -7,14 +7,25 @@
 </head>
 <body>
     <div id="mydiv">
-        {{nome}}
+        <h1 ref="meunome">{{nome}}</h1>
+        <button @click="mudanome">Muda nome</button>
     </div>
+
 <script type="text/javascript">
 var app1 = new Vue({
     el:"#mydiv",
     data:{
         nome: "Victor",
+    },
+    methods:{
+        mudanome: function(event){
+            this.$refs.meunome.innerText = `Meu nome é: ${this.nome}`;
+            setTimeout(function(){
+                app1.nome = 'Victor Santos Silva';
+            }, 3000)
+        }
     }
+//o template não é alterado após 3 segundos, mesmo que a variável nome seja
 })
 </script>
 </body>
