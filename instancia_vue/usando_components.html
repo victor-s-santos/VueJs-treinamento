@@ -16,17 +16,18 @@
     <primeiro-component></primeiro-component>
     <segundo-component></segundo-component>
 </div>
+<h2>União das divs:</h2>
+<div id="mydiv3">
+
+</div>
 <script type="text/javascript">
 Vue.component('primeiro-component', {
-    template: '<h1>Meu primeiro component com VueJs</h1>'
+    template: '<h3>Meu primeiro component com VueJs</h3>'
 });
 Vue.component('segundo-component', {
-    template: `<h2>Meu segundo component com VueJs`
+    template: `<h3>Meu segundo component com VueJs</h3>`
 })
-var app2 = new Vue({
-    el: "#mydiv2",
-});
-//os components precisam ser chamados dentro de uma instância
+
 var app1 = new Vue({
     el:"#mydiv1",
     data:{
@@ -34,6 +35,17 @@ var app1 = new Vue({
     },
 //não consigo jogar esta variável nome no template desta forma
 })
+
+var app2 = new Vue({
+    el: "#mydiv2",
+});
+//os components precisam ser chamados dentro de uma instância
+
+var app3 = new Vue({
+    el: "#mydiv3",
+    template:'<div><segundo-component></segundo-component><primeiro-component></primeiro-component></div>'
+    //assim é possível criar um template de outros components, desde que use div
+});
 </script>
 </body>
 </html>
