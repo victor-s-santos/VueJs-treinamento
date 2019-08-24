@@ -8,11 +8,12 @@
 <div id="mydiv1">
     {{nome}}
 <input v-model="nome" placeholder="novo nome aqui"/>
+<button @click="destruir">Destruir a instância!</button>
 </div>
 
 <script type="text/javascript">
     var app1 = new Vue({
-        el:"#mydiv1",
+        //el:"#mydiv1",
         data:{
             nome: "Victor"
         },
@@ -40,8 +41,16 @@
         beforeDestroy: function(){
             console.log('07-beforeDestroy()');
         },
+        methods:{
+            destruir: function(event){
+                this.$destroy();
+            }
+        }
 //verifica-se que mesmo alterando a ordem, a execução sempre segue os gatilhos
     })
+    setTimeout(function(){
+        app1.$mount('#mydiv1');
+    }, 2000)
 </script>    
 </body>
 </html>
