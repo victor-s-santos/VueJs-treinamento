@@ -7,15 +7,27 @@
 </head>
 <body>
 <div id="mydiv">
-{{nome}}
+<h2>{{nome}}</h2><br>
+<input v-model='nome' placeholder="nome aqui">
 </div>
+<div id="mydiv2"></div>
 <script type="text/javascript">
 var app1 = new Vue({
-    el: "#mydiv",
     data:{
         nome: "Victor",
+
     }
-})
+});
+var app2 = new Vue({
+    template: `<h1>Meu nome é:${app1.nome}</h1>`
+});
+app1.$mount('#mydiv');
+setTimeout(function(){
+    app2.$mount('#mydiv2');
+}, 5000);
+//assim se verifica o fato dessa abordagem não ser reativa, o template gerado não
+//é alterado por conta da variável nome ter mudado
 </script>
 </body>
 </html>
+
