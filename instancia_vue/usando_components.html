@@ -7,14 +7,32 @@
 </head>
 <body>
 <div id="mydiv1">
-    {{nome}}
+    <h2>Dentro da div mydiv1</h2>
+    <primeiro-component></primeiro-component>
+    <segundo-component></segundo-component>
+</div>
+<h2>Fora da div mydiv1</h2>
+<div id="mydiv2">
+    <primeiro-component></primeiro-component>
+    <segundo-component></segundo-component>
 </div>
 <script type="text/javascript">
+Vue.component('primeiro-component', {
+    template: '<h1>Meu primeiro component com VueJs</h1>'
+});
+Vue.component('segundo-component', {
+    template: `<h2>Meu segundo component com VueJs`
+})
+var app2 = new Vue({
+    el: "#mydiv2",
+});
+//os components precisam ser chamados dentro de uma instância
 var app1 = new Vue({
     el:"#mydiv1",
     data:{
         nome: "Victor",
-    }
+    },
+//não consigo jogar esta variável nome no template desta forma
 })
 </script>
 </body>
