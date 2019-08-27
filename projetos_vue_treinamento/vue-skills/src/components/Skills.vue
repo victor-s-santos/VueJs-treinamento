@@ -2,10 +2,11 @@
   <div class="skills">
     <h1>Skills -> Understanding components</h1>
     <h2>{{ name }}</h2>
-    <h3>{{ boleano ? 'The btn is disabled' : 'The btn is enabled' }}</h3>
+    <h3>{{ boleano ? 'The boleano is disabled' : 'The boleano is enabled' }}</h3>
     <br>
-    <button @click="changeMyName" v-bind:disabled="boleano">Change my name</button>
-    <button @click="boleano = !boleano">Boleano</button>
+    <ul>
+      <li v-for="(data, index) in skills" :key='index'>{{index}}.{{data.Skill}}</li>
+    </ul>
   </div>
 </template>
 
@@ -16,6 +17,10 @@ export default {
     return{
       name: 'Victor Santos Silva',
       boleano: true,
+      skills: [
+        {"Skill": "Vue.js"},
+        {"Skill": "Node.js"}
+      ]
     }
   }
 }
