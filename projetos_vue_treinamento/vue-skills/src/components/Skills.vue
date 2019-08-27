@@ -1,14 +1,17 @@
 <template>
   <div class="skills">
     <h1>Skills -> Understanding components</h1>
+    <h2>{{ name }}</h2>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Skills',
-  props: {
-    msg: String
+  data(){
+    return{
+      name: 'Victor Santos Silva',
+    }
   }
 }
 </script>
