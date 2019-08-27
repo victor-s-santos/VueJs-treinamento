@@ -2,6 +2,10 @@
   <div class="skills">
     <h1>Skills -> Understanding components</h1>
     <h2>{{ name }}</h2>
+    <h3>{{ boleano ? 'The btn is disabled' : 'The btn is enabled' }}</h3>
+    <br>
+    <button @click="changeMyName" v-bind:disabled="boleano">Change my name</button>
+    <button @click="boleano = !boleano">Boleano</button>
   </div>
 </template>
 
@@ -11,6 +15,7 @@ export default {
   data(){
     return{
       name: 'Victor Santos Silva',
+      boleano: true,
     }
   }
 }
