@@ -7,8 +7,7 @@
     <ul>
       <li v-for="(data, index) in skills" :key='index'>{{index}}.{{data.Skill}}</li>
     </ul>
-    <p v-if="skills.length >= 1">Congratulations, because you have one or more skills!</p>
-    <p v-else>You have no skills.</p>
+    <div v-bind:class="{alert: Alert, 'another-class': showClass}"></div>
   </div>
 </template>
 
@@ -22,13 +21,23 @@ export default {
       skills: [
         {"Skill": "Vue.js"},
         {"Skill": "Node.js"}
-      ]
+      ],
+      Alert: true,
+      showClass: true,
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="./estilos.css" scoped>
+<style scoped>
+  .alert{
+    background-color: rgb(4, 22, 37);
+    width: 100%;
+    height: 50px;
+  }
+  .another-class{
+    border: 5px solid red;
+  }
 
 </style>
