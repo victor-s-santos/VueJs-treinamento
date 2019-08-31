@@ -2,7 +2,7 @@
   <div class="skills">
     <h1>Skills -> Understanding components</h1>
     <h2>{{ name }}</h2>
-    <h3>{{ boleano ? 'The boleano is disabled' : 'The boleano is enabled' }}</h3>
+    <h3>{{ boleano ? 'The boleano is True' : 'The boleano is False' }}</h3>
     <br>
     <ul>
       <li v-for="(data, index) in skills" :key='index'>{{index}}.{{data.Skill}}</li>
