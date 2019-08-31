@@ -4,7 +4,7 @@ Vue.component('vss-component', {
   //necessita ser passada como função
   data: function(){
     return {
-      nome: 'Victor'
+      nome: 'Victor Santos Silva'
     }
 
   },
