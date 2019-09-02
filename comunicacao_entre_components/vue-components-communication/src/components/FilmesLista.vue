@@ -7,10 +7,10 @@
       <h2>Filmes</h2>
 
       <div class="list-group list-group-flush">
-
-        <FilmesListaIten filmeTitulo="Dragon Ball Super"/>
-        <FilmesListaIten filmeTitulo="O Clube da Luta"/>
-        <FilmesListaIten filmeTitulo="Lapso do Tempo"/>
+        <FilmesListaIten 
+        v-for="(filme, index) in filmes"
+        :key="index" 
+        :filmeTitulo="filme"/>
 
       </div>
     </div>
@@ -34,6 +34,11 @@ export default {
   components: {
     FilmesListaIten,
     FilmesListaItenInfo
+  },
+  data: function(){
+    return{
+      filmes: ["Dragon Ball Super", "O Clube da Luta", "Lapso do Tempo"]
+    }
   }
 }
 </script>
