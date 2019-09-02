@@ -9,8 +9,14 @@
 <script>
 export default {
     props: {
-        filmeTitulo: String
-        },
+        filmeTitulo:{
+            type: [String, Array],
+            //required: true,
+            default: "Efeito Borboleta"
+
+        } 
+        
+    },
     computed:{
         filmeConcatenado(){
             return `Título: ${this.filmeTitulo}`

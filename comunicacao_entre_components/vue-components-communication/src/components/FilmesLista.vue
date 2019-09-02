@@ -12,6 +12,7 @@
         :key="index" 
         :filmeTitulo="filme"/> -->
       <filmes-lista-iten :filmeTitulo="filmes[0]"/>
+      <filmes-lista-iten />
 
 
       </ul>
