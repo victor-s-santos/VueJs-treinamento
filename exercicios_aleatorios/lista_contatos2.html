@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <title>Lista de Contatos</title>
+</head>
+<body>
+<div id="mydiv1">
+<p>Insira seu nome:</p>
+<input placeholder="insira seu nome" v-model="nome">
+<span>{{alert}}</span>
+<div id="divbtn" v-if="escrito">
+        <button @click="adciona_lista">Insira nome</button>
+</div>
+    
+<p><h2 v-if="lista_nomes.length !== 0">Nomes inseridos:</h2></p>
+<ul>
+    <li v-for="nome in lista_nomes">{{nome}}</li>
+</ul>
+<li id="totaldenomes" v-if="lista_nomes.length !== 0">Total de nomes: {{lista_nomes.length}}</li>
+</div>
+
+<script type="text/javascript">
+    var app1 = new Vue({
+        el:"#mydiv1",
+        data:{
+            nome: "",
+            alert: "",
+            escrito: false,
+            lista_nomes: [],
+            timer: null,
+        },
+        methods:{
+            adciona_lista: function(){
+                this.lista_nomes.push(this.nome);
+                this.nome = '';
+            },
+            Pronto: function(){
+                this.alert = '';
+                if(this.nome.length > 2){
+                    this.escrito = true;
+                }
+            },
+        },
+        watch:{
+            nome:function(){
+                if(this.timer !== null){
+                    clearTimeout(this.timer);
+                }
+                if(this.nome !== ''){
+                    this.alert = "Digitando...";
+                    this.escrito = false;
+                    this.timer = setTimeout(this.Pronto, 1000);
+                }
+            }
+        },
+
+    })
+    </script>
+</body>
