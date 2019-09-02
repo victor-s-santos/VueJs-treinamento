@@ -12,7 +12,13 @@ export default {
         filmeTitulo:{
             type: [String, Array],
             //required: true,
-            default: "Efeito Borboleta"
+            default(){ 
+                return `Efeito Borboleta`
+            },
+            validator(titulo){
+                return titulo.includes('a')
+//como o nome default possui a string a, não acusa erro no console
+            }
 
         } 
         
