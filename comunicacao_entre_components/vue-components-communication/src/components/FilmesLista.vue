@@ -8,9 +8,9 @@
 
       <div class="list-group list-group-flush">
 
-        <FilmesListaIten/>
-        <FilmesListaIten/>
-        <FilmesListaIten/>
+        <FilmesListaIten filmeTitulo="Dragon Ball Super"/>
+        <FilmesListaIten filmeTitulo="O Clube da Luta"/>
+        <FilmesListaIten filmeTitulo="Lapso do Tempo"/>
 
       </div>
     </div>
