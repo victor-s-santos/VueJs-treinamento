@@ -6,12 +6,12 @@
 
       <h2>Filmes</h2>
 
-      <!-- <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush">
         <FilmesListaIten 
-        v-for="(filme, index) in filmes"
-        :key="index" 
-        :filmeTitulo="filme"/> -->
-      <filmes-lista-iten :filmeTitulo="filmes[0]"/>
+        v-for="filme in filmes"
+        :key="filme.id" 
+        :filmeTitulo="filme.titulo"
+        :filmeLancamento="filme.ano"/>
       <filmes-lista-iten />
 
 
@@ -40,7 +40,11 @@ export default {
   },
   data: function(){
     return{
-      filmes: ["Dragon Ball Super", "O Clube da Luta", "Lapso do Tempo"]
+      filmes: [
+        {id: 0, titulo: "Dragon Ball Super", ano:2016},
+        {id: 1, titulo: "O Clube da Luta", ano: 1999}, 
+        {id: 2, titulo: "Lapso do Tempo", ano: 2017}
+        ]
     }
   }
 }

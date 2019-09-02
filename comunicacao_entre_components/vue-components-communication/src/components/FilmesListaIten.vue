@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <!--<span>{{ filmeTitulo }}</span>-->
-        <span>{{filmeConcatenado}}</span>
+        <span>{{filmeConcatenado}} {{filmeLancamento}}</span>
         <button class="btn btn-success float-right">Editar</button>
     </li>
 </template>
@@ -20,6 +20,10 @@ export default {
 //como o nome default possui a string a, não acusa erro no console
             }
 
+        },
+        filmeLancamento:{
+            type: Number,
+            required: true,
         } 
         
     },
