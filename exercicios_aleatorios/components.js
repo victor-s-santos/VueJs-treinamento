@@ -43,7 +43,27 @@ let header = new Vue({
     }
 });
 
-let app1 = new Vue({
+//passando props
+let mensagem = {
+    props:['titulo', 'texto'],
+    data:function(){
+        return{
+            i:'dados internos do sistema',
+        }
+    },
+    template:`<div><h2>{{titulo}}</h2><p>{{texto}}</p>{{i}}</div>`
+}
+
+let conteudo = new Vue({
+    el:'#app2',
+    data:{
+    },
+    components:{
+        mensagem
+    }
+});
+
+let app1 = new Vue({//chama a instância
     el: '#app1',
     data: {
         nome: 'Victor Santos Silva'
