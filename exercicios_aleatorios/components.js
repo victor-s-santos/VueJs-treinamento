@@ -46,12 +46,18 @@ let header = new Vue({
 //passando props
 let mensagem = {
     props:['titulo', 'texto'],
+    methods:{
+        reponder: function(){
+            alert(`Respondido: ${this.titulo}`)
+        }
+    },
     data:function(){
         return{
             i:'dados internos do sistema',
         }
     },
-    template:`<div><h2>{{titulo}}</h2><p>{{texto}}</p>{{i}}</div>`
+    template:`<div><h2>{{titulo}}</h2><p>{{texto}}</p>{{i}}
+    <button @click="reponder">Responder</button></div>`
 }
 
 let conteudo = new Vue({
