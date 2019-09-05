@@ -23,7 +23,7 @@ export default {
         },
         filmeLancamento:{
             type: Number,
-            required: true,
+            //required: true,
         } 
         
     },
