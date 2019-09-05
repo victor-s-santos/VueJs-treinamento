@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="mydiv2">
+        <adiciona-tarefa v-on:chamaadd="adicionalistadetarefas"></adiciona-tarefa>
+    </div>
     <div id="mydiv1">
-        {{nome}}
         <listadetarefas v-bind:tarefas="tarefas"></listadetarefas>
     </div>
     <script type="text/javascript" src="todo.js"></script>
