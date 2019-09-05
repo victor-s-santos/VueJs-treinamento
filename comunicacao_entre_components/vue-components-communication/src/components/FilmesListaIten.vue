@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item">
         <!--<span>{{ filmeTitulo }}</span>-->
-        <span>{{filmeConcatenado}} {{filmeLancamento}}</span>
+        <span>{{filmeConcatenado}} {{ano}}</span>
         <button class="btn btn-success float-right">Editar</button>
     </li>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
     props: {
-        filmeTitulo:{
+        titulo:{
             type: [String, Array],
             //required: true,
             default(){ 
@@ -21,15 +21,18 @@ export default {
             }
 
         },
-        filmeLancamento:{
+        ano:{
             type: Number,
+            default(){
+                return '1993'
+            },
             //required: true,
         } 
         
     },
     computed:{
         filmeConcatenado(){
-            return `Título: ${this.filmeTitulo}`
+            return `Título: ${this.titulo}`
         }
     }
 }

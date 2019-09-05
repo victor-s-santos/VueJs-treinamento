@@ -10,8 +10,11 @@
         <FilmesListaIten 
         v-for="filme in filmes"
         :key="filme.id" 
-        :filmeTitulo="filme.titulo"
-        :filmeLancamento="filme.ano"/>
+        v-bind="filme" />
+        <!-- ao invés de:
+        :titulo="filme.titulo"
+        :ano="filme.ano"
+        -->
       <filmes-lista-iten />
 
 
