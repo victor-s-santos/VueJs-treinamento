@@ -46,7 +46,8 @@ export default {
       filmes: [
         {id: 0, titulo: "Dragon Ball Super", ano:2016},
         {id: 1, titulo: "O Clube da Luta", ano: 1999}, 
-        {id: 2, titulo: "Lapso do Tempo", ano: 2017}
+        {id: 2, titulo: "Lapso do Tempo", ano: 2017},
+        {id: 3, titulo: "O Poderoso Chefão"}
         ]
     }
   }

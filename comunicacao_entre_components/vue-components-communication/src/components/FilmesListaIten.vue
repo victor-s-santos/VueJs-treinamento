@@ -15,16 +15,16 @@ export default {
             default(){ 
                 return `Efeito Borboleta`
             },
-            validator(titulo){
-                return titulo.includes('a')
-//como o nome default possui a string a, não acusa erro no console
-            }
+//             validator(titulo){
+//                 return titulo.includes('a')
+// como o nome default possui a string a, não acusa erro no console
+//             }
 
         },
         ano:{
             type: Number,
             default(){
-                return '1993'
+                return 1993
             },
             //required: true,
         } 
