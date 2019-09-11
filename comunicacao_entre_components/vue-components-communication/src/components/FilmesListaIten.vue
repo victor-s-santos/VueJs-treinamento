@@ -11,7 +11,7 @@ export default {
     props: {
         titulo:{
             type: [String, Array],
-            //required: true,
+            required: true,
             default(){ 
                 return `Efeito Borboleta`
             },
@@ -23,10 +23,10 @@ export default {
         },
         ano:{
             type: Number,
-            default(){
-                return 1993
-            },
-            //required: true,
+            // default(){
+            //     return 1993
+            // },
+            required: false,
         } 
         
     },

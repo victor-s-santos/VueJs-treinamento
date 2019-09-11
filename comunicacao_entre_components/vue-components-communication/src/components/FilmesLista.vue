@@ -15,7 +15,7 @@
         :titulo="filme.titulo"
         :ano="filme.ano"
         -->
-      <filmes-lista-iten />
+      <!--<filmes-lista-iten />-->
 
 
       </ul>
