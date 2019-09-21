@@ -22,3 +22,10 @@ body{
     margin-bottom: 20px;
     background-color:#blue;
 }
+
+.layout{
+    background-color: rgb(136, 136, 173);
+    padding: 20px 20px 0px 20px;
+    display: inline-block;
+    border-radius:25px;
+}

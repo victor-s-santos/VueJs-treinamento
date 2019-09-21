@@ -23,7 +23,7 @@ Vue.component('sinalizador', {
         bola: bola
     },
     template:`
-        <div class="sinalizador">
+        <div class="layout">
             <bola />
             <bola />
             <bola />
@@ -33,6 +33,7 @@ Vue.component('sinalizador', {
 
 let mydiv1 = new Vue({
     el: '#mydiv1',
+    
 });
 
 
