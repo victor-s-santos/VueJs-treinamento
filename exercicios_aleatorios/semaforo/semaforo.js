@@ -53,10 +53,20 @@ let mydiv1 = new Vue({
     methods:{
         sinalAberto: function(){
             this.posicao = 'aberto';
+            //vai ficar verde
 
         },
         sinalFechado: function(){
             this.posicao = 'fechado';
+            //vai ficar vermelho
+        }
+    },
+    watch:{
+        posicao: function(posicao){
+            if(this.posicao == 'fechado'){
+                this.posicao = 'dormente'
+                setTimeout(() => this.posicao = 'aberto', 1000)
+            }
         }
     }
 });
