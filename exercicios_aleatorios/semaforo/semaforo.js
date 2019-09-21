@@ -11,25 +11,25 @@ let cabecalho = new Vue({
     }, 
 });
 
-//definindo o esquema do semáforo
+//definindo o esquema das bolas do semáforo
 let bola = {
     template:`
         <div class="bola">
         </div>
     `
 };
-let sinalizador = {
+Vue.component('sinalizador', {
     components:{
         bola: bola
     },
     template:`
         <div class="sinalizador">
-            <bola></bola>
-            <bola></bola>
-            <bola></bola>
+            <bola />
+            <bola />
+            <bola />
         </div>
         `
-}
+});
 
 let mydiv1 = new Vue({
     el: '#mydiv1',
