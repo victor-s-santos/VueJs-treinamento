@@ -29,3 +29,21 @@ body{
     display: inline-block;
     border-radius:25px;
 }
+
+.verde{
+    background-color: green;
+
+}
+
+.vermelho{
+    background-color: red;
+}
+
+.amarelo{
+    background-color: yellow;
+
+}
+
+.branco{
+    background-color: white;
+}

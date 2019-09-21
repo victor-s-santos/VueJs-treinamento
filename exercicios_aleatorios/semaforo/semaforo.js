@@ -13,27 +13,51 @@ let cabecalho = new Vue({
 
 //definindo o esquema das bolas do semáforo
 let bola = {
+    props:['cor'],
     template:`
-        <div class="bola">
+        <div class="bola" v-bind:class="cor">
         </div>
     `
 };
 Vue.component('sinalizador', {
+    props:['posicao'],
     components:{
         bola: bola
     },
     template:`
         <div class="layout">
-            <bola />
-            <bola />
-            <bola />
+            <template v-if="posicao == 'fechado'">
+            <bola cor='vermelho'/>
+            <bola cor='branco'/>
+            <bola cor='branco'/>
+            </template>
+            <template v-else-if="posicao == 'dormente'">
+            <bola cor='branco'/>
+            <bola cor='amarelo'/>
+            <bola cor='branco'/>
+            </template>
+            <template v-else-if="posicao == 'aberto'">
+            <bola cor='branco'/>
+            <bola cor='branco'/>
+            <bola cor='verde'/>
+            </template>
         </div>
         `
 });
 
 let mydiv1 = new Vue({
     el: '#mydiv1',
-    
+    data:{
+        posicao:'fechado'
+    },
+    methods:{
+        sinalAberto: function(){
+
+        },
+        sinalFechado: function(){
+
+        }
+    }
 });
 
 
