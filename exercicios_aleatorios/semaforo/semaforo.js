@@ -26,17 +26,17 @@ Vue.component('sinalizador', {
     },
     template:`
         <div class="layout">
-            <template v-if="posicao == 'fechado'">
+            <template v-if="posicao == 'vermelho'">
             <bola cor='vermelho'/>
             <bola cor='branco'/>
             <bola cor='branco'/>
             </template>
-            <template v-else-if="posicao == 'dormente'">
+            <template v-else-if="posicao == 'amarelo'">
             <bola cor='branco'/>
             <bola cor='amarelo'/>
             <bola cor='branco'/>
             </template>
-            <template v-else-if="posicao == 'aberto'">
+            <template v-else-if="posicao == 'verde'">
             <bola cor='branco'/>
             <bola cor='branco'/>
             <bola cor='verde'/>
@@ -48,25 +48,28 @@ Vue.component('sinalizador', {
 let mydiv1 = new Vue({
     el: '#mydiv1',
     data:{
-        posicao:'fechado'
+        posicao:'verde'
     },
     methods:{
         sinalAberto: function(){
-            this.posicao = 'aberto';
-            //vai ficar verde
+            this.posicao = 'verde';
+            //vai ficar verde: verde = aberto
 
         },
         sinalFechado: function(){
-            this.posicao = 'fechado';
-            //vai ficar vermelho
+            this.posicao = 'vermelho';
+            //vai ficar vermelho: vermelho = fechado
         }
     },
     watch:{
         posicao: function(posicao){
-            if(this.posicao == 'fechado'){
-                this.posicao = 'dormente'
-                setTimeout(() => this.posicao = 'aberto', 1000)
+            if(this.posicao == 'verde'){
+                this.posicao = 'amarelo',
+                setTimeout(this.sinalFechado, 1000)
             }
+            // else if(this.posicao == 'amarelo'){
+            //     this.sinalAberto
+            // } 
         }
     }
 });
