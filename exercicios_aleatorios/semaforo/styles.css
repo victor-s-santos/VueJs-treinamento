@@ -1,0 +1,22 @@
+body{
+    font-size:14px;
+    background-color:rgba(216, 223, 247, 0);
+    color:#000;
+}
+#mydiv1{
+    max-width: 1024px;
+    margin:auto;
+}
+.painel{
+    border:5px dashed #100;
+    padding: 20px;
+    margin: 15px;
+    background-color: blue;
+    margin-bottom: 20px;
+}
+.bola {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color:#blue;
+}
