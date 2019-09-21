@@ -14,8 +14,11 @@
 <body>
 <div id="mydiv1">
     <div class="painel">
-        <button>Liberar Sinal</button>
-        <button>Fechar Sinal</button>
+        <li v-if="posicao == 'fechado'">
+            <button @click='sinalAberto'>Liberar Sinal</button>
+        </li>
+        <li v-else>
+            <button @click='sinalFechado'>Fechar Sinal</button>
     </div>
     <sinalizador v-bind:posicao="posicao"></sinalizador>
 </div>

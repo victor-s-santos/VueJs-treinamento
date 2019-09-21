@@ -52,10 +52,11 @@ let mydiv1 = new Vue({
     },
     methods:{
         sinalAberto: function(){
+            this.posicao = 'aberto';
 
         },
         sinalFechado: function(){
-
+            this.posicao = 'fechado';
         }
     }
 });
