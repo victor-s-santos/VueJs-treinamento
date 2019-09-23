@@ -17,6 +17,7 @@
                 </li>
             </ul>
         </div>
+        <button @click="mudaTarefa">Muda tarefa</button>
     </div>
 </template>
 
@@ -29,6 +30,18 @@ export default {
         importancia: Number,
         feito: Boolean,
         tarefas: Object
+        // tarefas:{ isso nao funciona
+        //     titulo: String,
+        //     importancia: Number,
+        //     feito: Boolean
+        // }
+
+    },
+    methods:{
+        mudaTarefa(){
+            this.$emit('mudaTarefa', 'uma nova tarefa')
+        } 
+
     }
 }
 </script>
