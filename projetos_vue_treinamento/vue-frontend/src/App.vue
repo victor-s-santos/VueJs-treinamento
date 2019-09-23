@@ -3,7 +3,9 @@
     <app-header></app-header>
     <tarefa-unitaria
       :titulo="titulo"
-      :feito="feito">
+      :feito="feito"
+      :tarefas="tarefas"
+      >
     </tarefa-unitaria>
     <button @click="atualizaTarefa">Atualizar Tarefa</button>
     <app-footer></app-footer>
@@ -19,6 +21,11 @@ export default {
     return{
       titulo: "Amar o mozi",
       feito: false,
+      tarefas:
+        {
+          titulo: "passear com o Noob",
+          feito: false,
+        },
     }
   },
   methods:{

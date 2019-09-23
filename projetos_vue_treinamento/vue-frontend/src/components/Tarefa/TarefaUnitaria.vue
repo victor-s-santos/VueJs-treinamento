@@ -6,6 +6,15 @@
                 <li><span>Título: </span>{{titulo}}</li>
                 <li><span>Feito: </span>{{feito}}</li>
             </ul>
+            <h3>Lista de Tarefas</h3> 
+            <ul>
+                <li v-for="(key, value, index) in tarefas" :key="index">
+                    <span>
+                        {{key}}:
+                    </span>
+                    {{value}}
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -16,7 +25,8 @@ export default {
     //validando
     props:{
         titulo: String,
-        feito: Boolean
+        feito: Boolean,
+        tarefas: Object
     }
 }
 </script>
