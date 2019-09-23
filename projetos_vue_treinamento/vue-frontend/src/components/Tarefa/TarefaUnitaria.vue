@@ -4,15 +4,16 @@
             <h3>Tarefa:</h3>
             <ul>
                 <li><span>Título: </span>{{titulo}}</li>
+                <li><span>Importância(0 a 10): </span>{{importancia}}</li>
                 <li><span>Feito: </span>{{feito}}</li>
             </ul>
             <h3>Lista de Tarefas</h3> 
             <ul>
                 <li v-for="(key, value, index) in tarefas" :key="index">
                     <span>
-                        {{key}}:
+                        {{value}}:
                     </span>
-                    {{value}}
+                        {{key}}
                 </li>
             </ul>
         </div>
@@ -25,6 +26,7 @@ export default {
     //validando
     props:{
         titulo: String,
+        importancia: Number,
         feito: Boolean,
         tarefas: Object
     }

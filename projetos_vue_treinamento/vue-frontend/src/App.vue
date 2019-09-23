@@ -25,13 +25,15 @@ export default {
         {
           titulo: "passear com o Noob",
           feito: false,
+          importancia: 10
         },
     }
   },
   methods:{
     atualizaTarefa(){
       this.feito = !this.feito,
-      this.titulo = 'Amar o Noob'
+      this.titulo = 'Amar o Noob',
+      this.tarefas.feito = !this.tarefas.feito
     }
   },
   components:{
