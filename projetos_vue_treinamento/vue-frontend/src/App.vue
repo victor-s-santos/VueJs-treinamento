@@ -5,10 +5,10 @@
       :titulo="titulo"
       :feito="feito"
       :tarefas="tarefas"
-      @mudaTarefa="titulo = $event"
+      @eventomuda="titulo = $event"
       >
     </tarefa-unitaria>
-    <button @click="atualizaTarefa">Atualizar Tarefa</button>
+    <button @click="atualizaTarefa('Tarefinha nova')">Atualizar Tarefa</button>
     <app-footer></app-footer>
   </div>
 </template>
@@ -31,9 +31,9 @@ export default {
     }
   },
   methods:{
-    atualizaTarefa(){
+    atualizaTarefa(value){
       this.feito = !this.feito,
-      this.titulo = 'Amar o Noob'
+      this.titulo = value
     }
   },
   components:{

@@ -39,7 +39,7 @@ export default {
     },
     methods:{
         mudaTarefa(){
-            this.$emit('mudaTarefa', 'uma nova tarefa')
+            this.$emit('eventomuda', 'uma nova tarefa')
         } 
 
     }
