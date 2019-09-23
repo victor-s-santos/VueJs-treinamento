@@ -12,7 +12,12 @@
 
 <script>
 export default {
-    props: ['titulo', 'feito']
+    //props: ['titulo', 'feito']
+    //validando
+    props:{
+        titulo: String,
+        feito: Boolean
+    }
 }
 </script>
 
