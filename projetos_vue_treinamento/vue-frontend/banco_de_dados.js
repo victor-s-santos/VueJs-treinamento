@@ -17,8 +17,8 @@ let banco_de_dados = new sqlite3.Database(dbsource, (err) => {
             if (err) {
                 console.log('Tabela já está criada!')
                 var insert = 'INSERT or REPLACE INTO tarefas (titulo, feito) VALUES (?,?)'
-                banco_de_dados.run(insert, ["Amar o mozi",1])
-                banco_de_dados.run(insert, ["Lavar o pé", 0])
+                banco_de_dados.run(insert, ["Primeira tarefa",1])
+                banco_de_dados.run(insert, ["Segunda", 0])
             }
         });  
     }
