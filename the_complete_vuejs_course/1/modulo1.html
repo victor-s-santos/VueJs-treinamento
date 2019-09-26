@@ -8,15 +8,51 @@
 </head>
 <body>
 <div id="mydiv1">
-    <p v-for="(name, index) in names">
+    <!-- <p v-for="(name, index) in names">
         {{ index }} || {{ name }}
-    </p>
+    </p> -->
+    <!-- <ul>
+        <li v-for="(name, index) in names">
+        {{ index }} || {{ name }} 
+        <br></br>
+    </ul> -->
+    <ul>
+        <li v-for="(warrior, index) in warriors_array">
+        {{ index }} || {{ warrior.name }} is a {{ warrior.breed }}!
+        <br></br>
+    </ul>
+    <br>
+    </br>
+    <ul>
+        <li v-for="(value, key, index) in student">
+            {{index}} - {{ key }}:{{ value }}
+        </li>
+    </ul>
 </div>
 <script>
     new  Vue({
         el:"#mydiv1",
         data:{
-            names:['Vegeta' , 'Goku', 'Gohan', 'Freeza', 'Majin Boo' ]
+            student:{
+                first_name: "Jack",
+                last_name: "The Ripper",
+                age: 200
+            },
+            names:['Vegeta' , 'Goku', 'Gohan', 'Freeza', 'Majin Boo' ],
+            warriors_array:[
+                    {
+                        name: 'Vegeta',
+                        breed: 'Sayajin'
+                    },
+                    {
+                        name: 'Piccolo',
+                        breed: 'Namekuseijin'
+                    },
+                    {
+                        name: 'Hercule',
+                        breed: 'Human'
+                    }
+            ] 
         }
     })
 </script>
