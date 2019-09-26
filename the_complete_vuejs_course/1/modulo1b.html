@@ -9,7 +9,8 @@
 <body>
 <div id="mydiv1">
     <h1>{{name}}</h1>
-    <h2>{{name}}</h2>
+    <h2 v-once>{{name}}</h2>
+    <!--torna esta renderizacao imutavel -->
     <h2>{{name2}}</h2>
     {{ changename() }}
 </div>
