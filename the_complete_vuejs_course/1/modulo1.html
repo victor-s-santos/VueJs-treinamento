@@ -8,21 +8,36 @@
 </head>
 <body>
 <div id="mydiv1">
-    <img :src="src" :alt="alt"/>
-    <a :href="google">Go to google</a>
-    <br>
-    <p v-text="mytext"></p>
-    <p v-html="myhtml"></p>
+    <p v-if="age > allowed">
+        Yeah, You can go!
+    </p>
+    <p v-else-if="name === 'Goku'">
+        You are too strong, but you can't go yet!
+    </p>
+    <p v-else>
+    I am sorry, you can't go!
+    </p>
+    <h2> Using function:</h2>
+    <p v-if="checkUser()">
+        This warrior is the Prince Vegeta
+    </p>
+    <p v-else>
+        This warrior is anybody
+    </p>
+
 </div>
 <script>
     new  Vue({
         el:"#mydiv1",
         data:{
-            src:"https://picsum.photos/id/865/200/300",
-            alt:"An image",
-            google:"http://www.google.com",
-            mytext: "This is my text",
-            myhtml: "<b>This</b> <i>is</i> my <h2>text</h2>!"
+            age: 5,
+            allowed: 18,
+            name: 'Vegeta'
+        },
+        methods:{
+            checkUser(){
+                return this.name === 'Vegeta' ? true : false
+            }
         }
     })
 </script>
