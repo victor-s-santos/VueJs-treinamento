@@ -8,13 +8,27 @@
 </head>
 <body>
 <div id="mydiv1">
-{{nome}}
+    <p>Is this true?</p>
+    <h2>{{isTrue ? 'True': 'False' }}</h2>
+    <h3>{{lista[2]}}</h3>
+    <h3>{{ obj_json.food }}
+    <h1>{{ fc() }}
 </div>
 <script>
     new  Vue({
         el:"#mydiv1",
         data:{
-            nome: "Victor"
+            nome: "Victor",
+            isTrue: false,
+            lista: ['Victor', 'Santos', 'Silva'],
+            obj_json:{
+                car: 'Fiat',
+                drink: 'cachaça',
+                food: 'feijoada'
+            },
+            fc:()=>{
+                return 'Message from arrow function'
+            }
         }
     })
 </script>
