@@ -20,11 +20,11 @@ import Tarefa from './components/Tarefa/TarefaUnitaria'
 export default {
   data(){
     return{
-      titulo: "Amar o mozi",
+      titulo: "Primeira Tarefa",
       feito: false,
       tarefas:
         {
-          titulo: "Amar o noob",
+          titulo: "Segunda Tarefa",
           feito: false,
           importancia: 10
         },
