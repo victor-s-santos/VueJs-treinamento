@@ -8,13 +8,22 @@
 </head>
 <body>
 <div id="mydiv1">
-{{name}}
+<h2>{{name}}</h2>
+<div @dblclick="changename">
+<!-- this way I can use the double click -->
+Click me
+</div>
 </div>
 <script>
 new Vue({
     el: "#mydiv1",
     data:{
-        name: 
+        name: "Jack"
+    },
+    methods:{
+        changename(){
+            this.name = "The ripper"
+        }
     }
 })
 </script>
