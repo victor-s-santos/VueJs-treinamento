@@ -13,19 +13,37 @@
 <!-- this way I can use the double click -->
 Click me
 </div>
+<div class="box" v-on:mousemove="getCoord">
+Hover with the mouse
+</div>
+<p>horizontal position X:{{x}}</p>
+<p>Vertical position Y:{{y}}</p>
 </div>
 <script>
 new Vue({
     el: "#mydiv1",
     data:{
-        name: "Jack"
+        name: "Jack",
+        x: 0,
+        y: 0
     },
     methods:{
         changename(){
             this.name = "The ripper"
+        },
+        getCoord(event){
+            this.x = event.clientX;
+            this.y = event.clientY;
         }
     }
 })
 </script>
 </body>
+<style>
+    .box {
+        background: red;
+        width: 200px;
+        height: 200px;
+    }
+</style>
 </html>
