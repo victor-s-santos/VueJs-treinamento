@@ -1,19 +1,20 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
-//função que ajuda a gerar nome aleatório
 const min = 1;
 const max = 100;
+const min2 = 0;
+const max2 = 1;
 const numero = Math.floor(Math.random() * (+max - +min)) + +min; 
-const numero2 = Math.floor(Math.random() * (+max - +min)) + +min;
+const numero2 = Math.floor(Math.random() * (+max2 - +min2)) + +min2;
 
 chai.use(chaiHttp);
 
-describe('Usuários da api', () => {
-    describe('/GET usuarios', () =>{
-        it('Testando o método GET nos usuários', (done) => {
-            chai.request('http://localhost:8000')
-                .get('/api/usuarios')//testando o endpoint
+describe('Tarefas da api', () => {
+    describe('/GET tarefas', () =>{
+        it('Testando o método GET nas tarefas', (done) => {
+            chai.request('http://localhost:3000')
+                .get('/tarefas')//testando o endpoint
                 .end((err, res) => {
                     res.should.have.status(200);//testa se retorna status code 200
                     res.body.should.be.a('Object');//testa se o retorno é do tipo json
@@ -21,41 +22,20 @@ describe('Usuários da api', () => {
                 }); 
         });
     });
-
-    describe('/POST usuarios', () => {
-        it('Testa o método POST nos usuários', (done) => {
-            let novousuario = {
-                name: "Usuario" + numero,
-                email: "usuario" + numero + "@email",
-                password: "minhasenhasecreta"
+    describe('/POST tarefas', () => {
+        it('Testa o método POST nas tarefas', (done) => {
+            let novatarefa = {
+                titulo: "Tarefa" + numero,
+                feito: 1
             }
-            chai.request('http://localhost:8000')
-            .post('/api/usuarios')
-            .send(novousuario)
+            chai.request('http://localhost:3000')
+            .post('/tarefas')
+            .send(novatarefa)
             .end((err, res) => {
                 res.should.have.status(200);
             done();
             });
         });
     });
-//pensar em como resolver esse teste, dado que ele tá pegando o primeiro elemnto dentro do array, o qual 
-//é a mensagem
-/*
-    describe('/GET/:id usuario', () => {
-        it('GET em um usuario especifico pelo id', (done) => {
-            let id_ = numero2;
-                chai.request('http://localhost:8000')
-                .get('/api/usuarios/' + id_)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.have.property('id_').eql(id_);
-                    res.body.should.have.property('nome');
-                    res.body.should.have.property('email');
-                    res.body.should.have.property('password');
-                done();
-                });
-        });
-    });
-    */
 })
 
