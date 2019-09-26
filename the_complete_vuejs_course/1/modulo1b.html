@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/vue.js"></script>
+    <title>Módulo1</title>
+</head>
+<body>
+<div id="mydiv1">
+    <h1>{{name}}</h1>
+    <h2>{{name}}</h2>
+    <h2>{{name2}}</h2>
+    {{ changename() }}
+</div>
+<script>
+new Vue({
+    el:'#mydiv1',
+    data:{
+        name: 'José',
+        name2: `${this.name} da Silva`
+    },
+    methods:{
+        changename(){
+            setTimeout(()=> {
+                this.name = 'João'
+                this.changename2()
+            }, 2000)
+        },
+        changename2(){
+            setTimeout(()=> {
+                this.name = 'José'
+                this.changename()
+            }, 2000)
+        }
+    }
+})
+</script>
+</body>
+</html>
