@@ -9,13 +9,20 @@
 <body>
 <div id="mydiv1">
     <img :src="src" :alt="alt"/>
+    <a :href="google">Go to google</a>
+    <br>
+    <p v-text="mytext"></p>
+    <p v-html="myhtml"></p>
 </div>
 <script>
     new  Vue({
         el:"#mydiv1",
         data:{
             src:"https://picsum.photos/id/865/200/300",
-            alt:"An image"
+            alt:"An image",
+            google:"http://www.google.com",
+            mytext: "This is my text",
+            myhtml: "<b>This</b> <i>is</i> my <h2>text</h2>!"
         }
     })
 </script>
