@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/vue.js"></script>
+    <title>Módulo1</title>
+</head>
+<body>
+<div id="mydiv1">
+    <div 
+        class="object"
+        :class="{red:true}"
+        >
+            This is my content
+    </div>
+</div>
+<script>
+new Vue({
+    el:"#mydiv1",
+})
+</script>
+<style>
+
+.object{
+    color: white;
+    background: black;
+    padding: 10px;
+}
+.red{
+    background: red;
+}
+.green{
+    background: green;
+}
+</style>
+</body>
+</html>
