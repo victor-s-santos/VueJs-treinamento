@@ -10,8 +10,9 @@
 <div id="mydiv1">
     <div 
         class="object"
-        :class="{red: redcolor}"
-        @click="redcolor = !redcolor"
+        :class="colors"
+        @click="colors.red = !colors.red"
+        @dblclick="colors.blue = !colors.blue"
         >
             This is my content
     </div>
@@ -20,7 +21,10 @@
 new Vue({
     el:"#mydiv1",
     data:{
-        redcolor: false
+        colors:{
+            blue: false,
+            red: false
+        }
     }
 })
 </script>
@@ -36,6 +40,9 @@ new Vue({
 }
 .green{
     background: green;
+}
+.blue{
+    background: blue;
 }
 </style>
 </body>
