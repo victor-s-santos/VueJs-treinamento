@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/vue.js"></script>
+    <title>Módulo1</title>
+</head>
+<body>
+<div id="mydiv1">
+
+<form @submit.prevent="formHandler">
+    <input type="text" v-model.trim.lazy="formData.name" placeholder="Input your name here">
+    <hr>
+    <input type="text" v-model.trim.lazy="formData.lastName" placeholder="Input your last name here">
+    <hr>
+    <input type="text" v-model.number.lazy="formData.age" placeholder="Input your age here">
+    <hr>
+    <button type="submit">Submit</button>
+</form>
+
+</div>
+
+<script>
+new Vue({
+    el:'#mydiv1',
+    data:{
+        formData:{
+            name:'',
+            lastName:'',
+            age:''
+        }
+    },
+    methods:{
+        formHandler(){
+            console.log(this.formData)
+
+        }
+    }
+})
+//in this example i am usingi the trim, lazy and number modifiers
+</script>
+</body>
+</html>
