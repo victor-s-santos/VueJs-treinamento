@@ -11,7 +11,7 @@
 <h2>{{name}}</h2>
 <div @dblclick="changename">
 <!-- this way I can use the double click -->
-Click me
+DoubleClick me
 </div>
 <div class="box" v-on:mousemove="getCoord">
 Hover with the mouse
@@ -25,11 +25,18 @@ new Vue({
     data:{
         name: "Jack",
         x: 0,
-        y: 0
+        y: 0,
+        i: true,
     },
     methods:{
         changename(){
-            this.name = "The ripper"
+            if(this.i == false){
+                this.name = "The ripper"
+                this.i = !this.i
+            }else{
+                this.name = "Jack"
+                this.i = !this.i    
+            }
         },
         getCoord(event){
             this.x = event.clientX;
