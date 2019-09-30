@@ -16,6 +16,22 @@
         >
             This is my content
     </div>
+    <br>
+    <br>
+    </br>
+    </br>
+    <div 
+        class="object"
+        :class="colors"
+        :style="{
+            fontSize:'40px',
+             border: '5px solid green'
+        }"
+        @click="colors.red = !colors.red"
+        @dblclick="colors.blue = !colors.blue"
+        >
+            This is another content
+    </div>
 </div>
 <script>
 new Vue({
