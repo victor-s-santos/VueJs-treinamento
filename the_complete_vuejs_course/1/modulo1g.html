@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/vue.js"></script>
+    <title>Módulo1</title>
+</head>
+<body>
+<div id="mydiv1">
+    <div id="mydiv1">
+    Name:
+    {{name()}}
+    </div>
+<script>
+new Vue({
+    el:"#mydiv1",
+    data:{
+        user: "Victor"
+    },
+    methods:{
+        name(){
+            return this.user === "Victor" : "Welcome Victor!" ? "You are not Victor!"
+        }
+    }
+})
+</script>
+</body>
+</html>
