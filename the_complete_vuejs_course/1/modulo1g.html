@@ -16,6 +16,9 @@
     <br>
     <div>
     <h2>Active? {{isActive()}}</h2>
+    <div>
+    <h3>Loading: {{ loading }}</h3>
+    </div>
     </div>
     </div>
     </div>
@@ -25,6 +28,15 @@ new Vue({
     data:{
         user: "Victor",
         active: "",
+        loading: false
+    },
+    watch:{
+        active(value){
+            this.loading = true
+            setTimeout(() => {
+                this.loading = false
+            }, 2000)
+        }
     },
     computed:{
         compname(){
