@@ -9,7 +9,7 @@
 <body>
 <div id="mydiv1">
     Name:
-    {{name()}}
+    {{compname}}
     <div>
     <input v-model="user"><button @click="toggleActive">Active!</button>
     <br>
@@ -26,11 +26,16 @@ new Vue({
         user: "Victor",
         active: "",
     },
-    methods:{
-        name(){
+    computed:{
+        compname(){
             console.log("message")
             return this.user === "Victor" ? "Welcome Victor" : "You aren't Victor!"
-        },
+        }
+    },
+    methods:{
+        //name(){
+            //console.log("message")
+            //return this.user === "Victor" ? "Welcome Victor" : "You aren't Victor!"
         isActive(){
             console.log("active")
             return this.active ? true: false
