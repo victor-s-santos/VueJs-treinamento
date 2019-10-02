@@ -8,21 +8,36 @@
 </head>
 <body>
 <div id="mydiv1">
-    <div id="mydiv1">
     Name:
     {{name()}}
     <div>
-    <input v-model="user">
+    <input v-model="user"><button @click="toggleActive">Active!</button>
+    <br>
+    <br>
+    <div>
+    <h2>Active? {{isActive()}}</h2>
+    </div>
+    </div>
     </div>
 <script>
 new Vue({
     el:"#mydiv1",
     data:{
-        user: "Victor"
+        user: "Victor",
+        active: "",
     },
     methods:{
         name(){
+            console.log("message")
             return this.user === "Victor" ? "Welcome Victor" : "You aren't Victor!"
+        },
+        isActive(){
+            console.log("active")
+            return this.active ? true: false
+        },
+        toggleActive(){
+            this.active = this.active ? false : true
+            //this.active = !this.active
         }
     }
 })
