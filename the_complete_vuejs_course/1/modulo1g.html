@@ -11,6 +11,8 @@
     <div id="mydiv1">
     Name:
     {{name()}}
+    <div>
+    <input v-model="user">
     </div>
 <script>
 new Vue({
@@ -20,7 +22,7 @@ new Vue({
     },
     methods:{
         name(){
-            return this.user === "Victor" : "Welcome Victor!" ? "You are not Victor!"
+            return this.user === "Victor" ? "Welcome Victor" : "You aren't Victor!"
         }
     }
 })
