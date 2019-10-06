@@ -14,8 +14,13 @@
 </div>
 <div id="mydiv2">
     <h2>Instância 2: {{value}}</h2>
+    <button @click="mudaValor">Mudar!</button>
+    <button @click="algumAlerta">Mensagem</button>
 </div>
 <script>
+
+let msg = "Olá Mundo!"
+
 const app1 = new Vue({
     el:"#mydiv1",
     data:{
@@ -32,6 +37,14 @@ const app2 = new Vue({
     el:"#mydiv2",
     data:{
         value: "Instância 2"
+    },
+    methods:{
+        mudaValor(){
+            app1.value = this.value;
+        },
+        algumAlerta(){
+            alert(msg)
+        }
     }
 })
 </script>
