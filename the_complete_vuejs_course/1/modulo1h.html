@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/vue.js"></script>
+    <title>Módulo1</title>
+</head>
+<body>
+
+<div id="mydiv1">
+    <h2>Instância 1: {{value}}</h2>
+</div>
+<div id="mydiv2">
+    <h2>Instância 2: {{value}}</h2>
+</div>
+<script>
+new Vue({
+    el:"#mydiv1",
+    data:{
+        value: "Instância 1"
+    },
+}),
+new Vue({
+    el:"#mydiv2",
+    data:{
+        value: "Instância 2"
+    }
+})
+</script>
+</body>
+</html>
