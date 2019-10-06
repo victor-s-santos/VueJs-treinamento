@@ -10,18 +10,25 @@
 
 <div id="mydiv1">
     <h2>Instância 1: {{value}}</h2>
+    <button @click="mudaValor">Mudar!</button>
 </div>
 <div id="mydiv2">
     <h2>Instância 2: {{value}}</h2>
 </div>
 <script>
-new Vue({
+const app1 = new Vue({
     el:"#mydiv1",
     data:{
         value: "Instância 1"
     },
-}),
-new Vue({
+    methods:{
+        mudaValor(){
+            app2.value = this.value;
+        }
+    }
+})
+
+const app2 = new Vue({
     el:"#mydiv2",
     data:{
         value: "Instância 2"
