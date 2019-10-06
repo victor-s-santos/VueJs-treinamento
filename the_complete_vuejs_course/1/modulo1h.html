@@ -10,6 +10,7 @@
 
 <div id="mydiv1">
     <h2>Instância 1: {{value}}</h2>
+    <h2>{{nome}}</h2>
     <button @click="mudaValor">Mudar!</button>
 </div>
 <div id="mydiv2">
@@ -47,6 +48,11 @@ const app2 = new Vue({
         }
     }
 })
+
+setTimeout(()=>{
+    app1.value = "Cronômetro zerado: Valor mudado!"
+    app1.nome = "Victor"
+}, 4000)
 </script>
 </body>
 </html>
