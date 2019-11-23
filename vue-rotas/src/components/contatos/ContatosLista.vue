@@ -1,6 +1,14 @@
 <template>
     <div>
         <h3 class="font-weight-light">Contatos mano</h3>
+        <ul class="list-group" v-if="contatos.length > 0">
+            <contatos-lista-unitario
+                class="list-group-item"
+                v-for="contato in contatos"
+                :key="contato.id"
+                :contato="contato" />
+        </ul>
+        <p v-else>Nenhum contato encontrado!</p>
         <button class="btn btn-secondary mb-4 mb-4" @click="voltar">Voltar</button>
     </div>
 </template>
@@ -20,6 +28,12 @@ export default {
                 {id: 3, nome: 'Leonardo Davinci', email: 'leonardo@davinci.com'},
                 {id: 4, nome: 'Isaac Newton', email: 'isaac@newton.com'},
             ]
+        }
+    },
+    methods:{
+        voltar(){
+            //this.$router.push({path: '/'}) outra possibilidade
+            this.$router.back()
         }
     }
 }
