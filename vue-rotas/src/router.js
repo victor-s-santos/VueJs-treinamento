@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 
 export default new VueRouter({
   mode: 'history',
+  linkActiveClass: 'active',
   routes: [
     { path: '/contatos', component: Contatos },
     { path: '/', component: Home }
