@@ -1,7 +1,9 @@
 <template>
     <li>
         <span>{{ contato.nome }}</span>
-        <button class="btn btn-info btn-sm float-right">Saber mais</button>
+        <router-link 
+        :to="`/contatos/${contato.id}`"
+        class="btn btn-info btn-sm float-right">Saber mais</router-link>
     </li>
 </template>
 
