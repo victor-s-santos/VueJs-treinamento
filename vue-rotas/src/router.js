@@ -10,8 +10,9 @@ export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
-    { path: '/contatos', component: Contatos },
-    { path: '/contatos/:id', component: ContatoDetalhes}, //rotas-contatos.com/contatos/1, rota dinâmica
+    { path: '/contatos', component: Contatos, children: [
+      { path: ':id', component: ContatoDetalhes}
+    ] },
     { path: '/', component: Home }
   ]
 })
