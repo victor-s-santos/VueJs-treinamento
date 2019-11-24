@@ -19,6 +19,16 @@
         >
           Contatos
           </router-link>
+      <router-link 
+        to="/contatos/1" 
+        class="btn btn-info mb-2 mr-2">
+          Contato 1
+        </router-link>
+      <router-link 
+        to="/contatos/2" 
+        class="btn btn-info mb-2 mr-2">
+          Contato 2
+        </router-link>
 
       <router-view></router-view>
 
