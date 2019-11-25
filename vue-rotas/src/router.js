@@ -17,19 +17,15 @@ export default new VueRouter({
     { path: '/contatos', component: Contatos, alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       children: [
       { path: ':id', component: ContatoDetalhes, name: 'contato'},
-      { path: ':id/editar',
-        alias: ':id/alterar',
-        components:{
-          default: ContatoEditar,
-          'contato-detalhes': ContatoDetalhes 
-        }
+      { path: ':id/editar', alias: ':id/alterar',components:{ default: ContatoEditar,
+          'contato-detalhes': ContatoDetalhes},
       },
-      { path: '', component: ContatosHome, name: 'contatos'}
+      { path: '', component: ContatosHome, name: 'contatos'},
+      {path: '/contatos*', component: Erro404Contatos},
     ] },
     // { path:'/contatos', redirect:'/meus-contatos'},
     { path: '/home', component: Home, name: 'home' },
     { path: '/', redirect: 'contatos' },
-    {path: '/contatos*', component: Erro404Contatos},
     { path: '*', component: Erro404}
     
   ]
