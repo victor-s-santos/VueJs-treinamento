@@ -12,10 +12,11 @@ export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
-    { path: '/contatos', component: Contatos, alias: '/meus-contatos',
+    { path: '/contatos', component: Contatos, alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       children: [
       { path: ':id', component: ContatoDetalhes, name: 'contato'},
-      { path: ':id/editar', 
+      { path: ':id/editar',
+        alias: ':id/alterar',
         components:{
           default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes 
