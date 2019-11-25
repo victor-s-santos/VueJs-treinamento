@@ -26,7 +26,8 @@ export default {
     methods:{
         verdetalhes(){
             //this.$router.push(`/contatos/${this.contato.id}`)
-            this.$router.push({path:`/contatos/${this.contato.id}`})
+            // this.$router.push({path:`/contatos/${this.contato.id}`})
+            this.$router.push({name: 'contato', params: {id: this.contato.id}})
         }
     }
 }
