@@ -12,7 +12,8 @@ export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
-    { path: '/contatos', component: Contatos, children: [
+    { path: '/contatos', component: Contatos, 
+      children: [
       { path: ':id', component: ContatoDetalhes, name: 'contato'},
       { path: ':id/editar', 
         components:{
@@ -20,9 +21,10 @@ export default new VueRouter({
           'contato-detalhes': ContatoDetalhes 
         }
       },
-      { path: '', component: ContatosHome}
+      { path: '', component: ContatosHome, name: 'contatos'}
     ] },
-    //{ path:'/contatos', redirect:'/meus-contatos'}, estou redirecionando a rota
-    { path: '/', component: Home }
+    // { path:'/contatos', redirect:'/meus-contatos'},
+    { path: '/home', component: Home, name: 'home' },
+    { path: '/', redirect: 'contatos' }
   ]
 })
