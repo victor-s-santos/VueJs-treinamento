@@ -22,6 +22,7 @@ export default new VueRouter({
       },
       { path: '', component: ContatosHome}
     ] },
+    //{ path:'/contatos', redirect:'/meus-contatos'}, estou redirecionando a rota
     { path: '/', component: Home }
   ]
 })
