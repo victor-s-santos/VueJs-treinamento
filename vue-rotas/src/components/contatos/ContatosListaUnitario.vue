@@ -1,8 +1,11 @@
+<!-- 
+    :to="`/contatos/${contato.id}`"
+-->
 <template>
     <li>
         <span>{{ contato.nome }}</span>
         <router-link 
-        :to="`/contatos/${contato.id}`"
+        :to="{ name: 'contato', params: {id: contato.id}}"
         class="btn btn-info btn-sm float-right">Saber mais</router-link>
     </li>
 </template>
