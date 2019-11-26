@@ -6,7 +6,8 @@
                 type="search" 
                 class="form-control" 
                 placeholder="Buscar contatos" 
-                @keyup.enter="buscar" />
+                @keyup.enter="buscar"
+                :value="$route.query.busca" />
         </div>
         <hr>
         <ul class="list-group" v-if="contatosfiltrados.length > 0">
