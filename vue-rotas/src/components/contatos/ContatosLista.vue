@@ -43,7 +43,7 @@ export default {
             const busca = this.$route.query.busca
             return !busca 
                 ?this.contatos 
-                : this.contatos.filter()
+                : this.contatos.filter(c => c.nome.toLowerCase().includes(busca.toLowerCase()))
         }
     },
     methods:{
