@@ -9,10 +9,10 @@
                 @keyup.enter="buscar" />
         </div>
         <hr>
-        <ul class="list-group" v-if="contatos.length > 0">
+        <ul class="list-group" v-if="contatosfiltrados.length > 0">
             <contatos-lista-unitario
                 class="list-group-item"
-                v-for="contato in contatos"
+                v-for="contato in contatosfiltrados"
                 :key="contato.id"
                 :contato="contato" />
         </ul>
@@ -36,6 +36,14 @@ export default {
                 {id: 3, nome: 'Leonardo Davinci', email: 'leonardo@davinci.com'},
                 {id: 4, nome: 'Isaac Newton', email: 'isaac@newton.com'},
             ]
+        }
+    },
+    computed:{
+        contatosfiltrados(){
+            const busca = this.$route.query.busca
+            return !busca 
+                ?this.contatos 
+                : this.contatos.filter()
         }
     },
     methods:{
