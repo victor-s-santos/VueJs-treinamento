@@ -1,6 +1,14 @@
 <template>
     <div>
         <h3 class="font-weight-light">Contatos mano</h3>
+        <div class="form-group">
+            <input 
+                type="search" 
+                class="form-control" 
+                placeholder="Buscar contatos" 
+                @keyup.enter="buscar" />
+        </div>
+        <hr>
         <ul class="list-group" v-if="contatos.length > 0">
             <contatos-lista-unitario
                 class="list-group-item"
@@ -34,6 +42,11 @@ export default {
         voltar(){
             //this.$router.push({path: '/'}) outra possibilidade
             this.$router.back()
+        },
+        buscar(){
+            this.$router.push({
+                
+            })
         }
     }
 }
