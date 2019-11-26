@@ -16,9 +16,9 @@ export default new VueRouter({
   routes: [
     { path: '/contatos', component: Contatos, alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       children: [
-      { path: ':id', component: ContatoDetalhes, name: 'contato'},
+      { path: ':id', component: ContatoDetalhes, name: 'contato', props: true},
       { path: ':id/editar', alias: ':id/alterar',components:{ default: ContatoEditar,
-          'contato-detalhes': ContatoDetalhes},
+          'contato-detalhes': ContatoDetalhes}, props: {default: true, 'contato-detalhes': true}
       },
       { path: '', component: ContatosHome, name: 'contatos'},
       {path: '/contatos*', component: Erro404Contatos},
