@@ -45,7 +45,8 @@ export default {
         },
         buscar(){
             this.$router.push({
-                
+                path:'/contatos',
+                query: { busca: event.target.value}
             })
         }
     }
