@@ -22,7 +22,7 @@ export default new VueRouter({
         return busca ? {busca} : {}
       },
       children: [
-      { path: ':id', 
+      { path: ':id(\\d+)', 
         component: ContatoDetalhes, 
         name: 'contato', 
         props: route => {
