@@ -32,8 +32,8 @@ export default new VueRouter({
 
         }
       },
-      { path: ':id/editar', 
-        alias: ':id/alterar',
+      { path: ':id(\\d+)/editar', 
+        alias: ':id(\\d+)/alterar',
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
           props: {default: true, 'contato-detalhes': true}
