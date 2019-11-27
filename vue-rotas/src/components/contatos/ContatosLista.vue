@@ -29,6 +29,7 @@ export default {
     components:{
         ContatosListaUnitario
     },
+    props: ['busca'],
     data(){
         return {
             contatos: [

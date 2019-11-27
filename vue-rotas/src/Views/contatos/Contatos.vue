@@ -10,6 +10,7 @@ import ContatosLista from './../../components/contatos/ContatosLista.vue'
 export default {
     components:{
         ContatosLista
-    }
+    }, 
+    props: ['busca']
 }
 </script>
