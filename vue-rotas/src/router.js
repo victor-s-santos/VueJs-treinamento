@@ -32,7 +32,8 @@ export default new VueRouter({
         },
       { 
         // path: ':id(\\d+)/editar/:opcional?',
-        path: ':id(\\d+)/editar/:zeroOumais*', 
+        // path: ':id(\\d+)/editar/:zeroOumais*',
+        path: ':id(\\d+)/editar/:umOumais+', 
         alias: ':id(\\d+)/alterar',
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
