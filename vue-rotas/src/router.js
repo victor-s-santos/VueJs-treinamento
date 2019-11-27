@@ -14,19 +14,34 @@ export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
-    { path: '/contatos', component: Contatos, alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
+    { path: '/contatos', 
+      component: Contatos, 
+      alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       children: [
-      { path: ':id', component: ContatoDetalhes, name: 'contato', props: true},
-      { path: ':id/editar', alias: ':id/alterar',components:{ default: ContatoEditar,
-          'contato-detalhes': ContatoDetalhes}, props: {default: true, 'contato-detalhes': true}
+      { path: ':id', 
+        component: ContatoDetalhes, 
+        name: 'contato', 
+        props: true},
+      { path: ':id/editar', 
+        alias: ':id/alterar',
+        components:{ default: ContatoEditar,
+          'contato-detalhes': ContatoDetalhes}, 
+          props: {default: true, 'contato-detalhes': true}
       },
-      { path: '', component: ContatosHome, name: 'contatos'},
-      {path: '/contatos*', component: Erro404Contatos},
+      { path: '', 
+        component: ContatosHome, 
+        name: 'contatos'},
+      {path: '/contatos*', 
+        component: Erro404Contatos},
     ] },
     // { path:'/contatos', redirect:'/meus-contatos'},
-    { path: '/home', component: Home, name: 'home' },
-    { path: '/', redirect: 'contatos' },
-    { path: '*', component: Erro404}
+    { path: '/home', 
+      component: Home, 
+      name: 'home' },
+    { path: '/', 
+      redirect: 'contatos' },
+    { path: '*', 
+      component: Erro404}
     
   ]
 })
