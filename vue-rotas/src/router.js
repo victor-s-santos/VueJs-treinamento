@@ -25,13 +25,11 @@ export default new VueRouter({
       { path: ':id(\\d+)', 
         component: ContatoDetalhes, 
         name: 'contato', 
-        props: route => {
-          return{
+        props: route => ({
             id: parseInt(route.params.id)
-          } 
+          }) 
 
-        }
-      },
+        },
       { path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
         components:{ default: ContatoEditar,
