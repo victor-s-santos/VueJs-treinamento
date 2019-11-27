@@ -1,6 +1,6 @@
 <template>
     <div>
-        <contatos-lista />
+        <contatos-lista :busca="busca" />
         <router-view></router-view>
         <router-view name="contato-detalhes"></router-view>
     </div>
