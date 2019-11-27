@@ -10,6 +10,9 @@ import Erro404Contatos from './Views/contatos/Erro404Contatos.vue'
 
 Vue.use(VueRouter)
 
+const extractParameterId = route => ({
+  id: parseInt(route.params.id)
+})
 export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
@@ -25,16 +28,13 @@ export default new VueRouter({
       { path: ':id(\\d+)', 
         component: ContatoDetalhes, 
         name: 'contato', 
-        props: route => ({
-            id: parseInt(route.params.id)
-          }) 
-
+        props: extractParameterId
         },
       { path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
-          props: {default: true, 'contato-detalhes': true}
+          props: {default: extractParameterId, 'contato-detalhes': extractParameterId}
       },
       { path: '', 
         component: ContatosHome, 
