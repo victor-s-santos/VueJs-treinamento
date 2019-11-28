@@ -16,6 +16,10 @@ export default {
             required: true
         }
     },
+    beforeRouteUpdate(to, from, next){
+        console.log('Executando beforeRouteUpdate de dentro do component')
+        next()
+    }
     // data(){
     //     return {
     //         id: this.$route.params.id
