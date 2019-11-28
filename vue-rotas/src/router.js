@@ -38,7 +38,11 @@ const router = new VueRouter({
         alias: ':id(\\d+)/alterar',
         beforeEnter(to, from, next){
           console.log('Executando beforeEnter dentro da rota')
-          next()
+          if(to.query.autenticado === 'true'){
+            next()
+            return
+          }
+          next('/contatos')
         },
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
