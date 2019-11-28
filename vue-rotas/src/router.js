@@ -7,6 +7,7 @@ import ContatoDetalhes from './Views/contatos/ContatoDetalhes.vue'
 import ContatoEditar from './Views/contatos/ContatoEditar.vue'
 import Erro404 from './Views/Erro404.vue'
 import Erro404Contatos from './Views/contatos/Erro404Contatos.vue'
+import Login from './Views/login/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,8 @@ const router = new VueRouter({
     { path: '/home', 
       component: Home, 
       name: 'home' },
+    { path: '/login', component: Login},
+
     { path: '/', 
       redirect: 'contatos' },
     { path: '*', 
