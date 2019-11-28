@@ -39,7 +39,7 @@ const router = new VueRouter({
         //path: ':id(\\d+)/editar/:umOumais+',
         path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
-        meta: {isAutenticated: true},
+        meta: {requerAutenticacao: true},//assim requer autenticação
         beforeEnter(to, from, next){
           next() //continua a navegação
           //next(true) //continua a navegação
@@ -79,7 +79,16 @@ router.beforeResolve((to, from, next) => {
 router.beforeEach((to, from, next) => {
   // console.log('Executado BeforeEach')
   const estaAutenticado = EventBus.autenticado
-  console.log("As rotas:", to.matched)
+  //console.log("As rotas:", to.matched)
+  if(to.matched.some(rota => rota.meta.requerAutenticacao)){//rotas que requerem autenticação
+    if(!requerAutenticacao){
+      next({
+        path:'/login',
+        query:{ redirecionar: to.fullPath }
+      })
+      return
+    }
+  }
   next()
 })
 router.afterEach((to, from) => {
