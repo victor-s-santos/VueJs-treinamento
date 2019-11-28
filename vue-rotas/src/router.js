@@ -76,7 +76,7 @@ router.beforeEach((to, from, next) => {
   if(to.meta.isAutenticated === true){
     console.log('Usuário autenticado.')
   }else{
-    console.log('Usuário não autenticado!')
+    console.log(`Requer autenticação? ${to.meta.isAutenticated}`)
   }
   next()
 })
