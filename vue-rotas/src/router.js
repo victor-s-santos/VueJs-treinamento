@@ -37,7 +37,9 @@ const router = new VueRouter({
         path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
         beforeEnter(to, from, next){
-          next()
+          //next() //continua a navegação
+          //next(true) //continua a navegação
+          next(false) //interrompe a navegação
         },
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
