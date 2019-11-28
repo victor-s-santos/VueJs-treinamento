@@ -40,7 +40,8 @@ const router = new VueRouter({
           //next() //continua a navegação
           //next(true) //continua a navegação
           //next(false) //interrompe a navegação
-          next('/contatos') //funciona como redirect,poderia ser assim: next({name: 'contatos})
+          //next('/contatos') //funciona como redirect,poderia ser assim: next({name: 'contatos})
+          next(new Error(`Você não possui permissões para acessar ${to.fullPath}`))
         },
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
