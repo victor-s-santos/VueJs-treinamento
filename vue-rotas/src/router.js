@@ -79,12 +79,7 @@ router.beforeResolve((to, from, next) => {
 router.beforeEach((to, from, next) => {
   // console.log('Executado BeforeEach')
   const estaAutenticado = EventBus.autenticado
-  console.log(`Exibindo rotas: ${to.matched}`)
-  if(to.meta.isAutenticated === true){
-    console.log('Usuário autenticado.')
-  }else{
-    console.log(`Requer autenticação? ${to.meta.isAutenticated}`)
-  }
+  console.log("As rotas:", to.matched)
   next()
 })
 router.afterEach((to, from) => {
