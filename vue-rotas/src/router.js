@@ -60,6 +60,12 @@ const router = new VueRouter({
     
   ]
 })
+
+router.beforeResolve((to, from, next) => {
+  console.log('Executando beforeResolve!')
+  next()
+}),
+
 router.beforeEach((to, from, next) => {
   console.log('Executado BeforeEach')
   next()
