@@ -33,7 +33,8 @@ const router = new VueRouter({
       { 
         // path: ':id(\\d+)/editar/:opcional?',
         // path: ':id(\\d+)/editar/:zeroOumais*',
-        path: ':id(\\d+)/editar/:umOumais+', 
+        //path: ':id(\\d+)/editar/:umOumais+',
+        path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
         beforeEnter(to, from, next){
           console.log('Executando beforeEnter dentro da rota')
