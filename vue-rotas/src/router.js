@@ -39,7 +39,8 @@ const router = new VueRouter({
         beforeEnter(to, from, next){
           //next() //continua a navegação
           //next(true) //continua a navegação
-          next(false) //interrompe a navegação
+          //next(false) //interrompe a navegação
+          next('/contatos') //funciona como redirect,poderia ser assim: next({name: 'contatos})
         },
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
