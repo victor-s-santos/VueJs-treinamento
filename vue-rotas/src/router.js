@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 const extractParameterId = route => ({
   id: parseInt(route.params.id)
 })
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
@@ -56,3 +56,5 @@ export default new VueRouter({
     
   ]
 })
+
+export default router
