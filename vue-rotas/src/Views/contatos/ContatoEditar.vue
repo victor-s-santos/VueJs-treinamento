@@ -32,7 +32,8 @@ export default {
     },
     beforeRouteLeave(to, from, next){
         console.log('Executando um beforeRouteLeave! Será chamado sempre ao sair da página.')
-        next()
+        const confirma = window.confirm('Você tem certeza que gostaria de sair da página?')
+        next(confirma)
     }
 }
 </script>
