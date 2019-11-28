@@ -38,7 +38,7 @@ const router = new VueRouter({
         alias: ':id(\\d+)/alterar',
         beforeEnter(to, from, next){
           console.log('Executando beforeEnter dentro da rota')
-          if(to.query.autenticado){
+          if(to.query.autenticado === 'true'){
             next()
             return
           }
