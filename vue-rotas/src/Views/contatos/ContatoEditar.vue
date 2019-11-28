@@ -15,7 +15,11 @@ export default {
     props: ['id'],
     beforeRouteEnter(to, from, next){
         console.log('Executando beforeRouteEnter, de dentro do component')
-        next()
+        if(to.query.autenticado === 'true'){
+            next()
+            return
+        }
+        next('/contatos')
     }
 }
 </script>
