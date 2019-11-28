@@ -20,9 +20,11 @@ export default {
     },
     beforeRouteEnter(to, from, next){
         console.log('Executando beforeRouteEnter, de dentro do component')
-        console.log(`Nome: ${this.nome}`)
+        //console.log(`Nome: ${this.nome}`)
         if(to.query.autenticado === 'true'){
-            next()
+            next((instanciavuedocomponent) => {
+                console.log(`Nome: ${instanciavuedocomponent.nome}`)
+            })
             return
         }
         next('/contatos')
