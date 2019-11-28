@@ -78,4 +78,8 @@ router.afterEach((to, from) => {
   console.log('Executado afterEach')
 })
 
+router.onError((erro) => {
+  console.error(`${erro}!`)
+})
+
 export default router
