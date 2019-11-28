@@ -36,12 +36,13 @@ const router = new VueRouter({
         //path: ':id(\\d+)/editar/:umOumais+',
         path: ':id(\\d+)/editar', 
         alias: ':id(\\d+)/alterar',
+        meta: {isAutenticated: true},
         beforeEnter(to, from, next){
-          //next() //continua a navegação
+          next() //continua a navegação
           //next(true) //continua a navegação
           //next(false) //interrompe a navegação
           //next('/contatos') //funciona como redirect,poderia ser assim: next({name: 'contatos})
-          next(new Error(`Você não possui permissões para acessar ${to.fullPath}`))
+          //next(new Error(`Você não possui permissões para acessar ${to.fullPath}`))
         },
         components:{ default: ContatoEditar,
           'contato-detalhes': ContatoDetalhes}, 
@@ -72,6 +73,11 @@ router.beforeResolve((to, from, next) => {
 
 router.beforeEach((to, from, next) => {
   console.log('Executado BeforeEach')
+  if(to.meta.isAutenticated === true){
+    console.log('Usuário autenticado.')
+  }else{
+    console.log('Usuário não autenticado!')
+  }
   next()
 })
 router.afterEach((to, from) => {
