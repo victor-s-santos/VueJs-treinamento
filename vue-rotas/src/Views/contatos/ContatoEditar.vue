@@ -13,5 +13,9 @@
 <script>
 export default {
     props: ['id'],
+    beforeRouteEnter(to, from, next){
+        console.log('Executando beforeRouteEnter, de dentro do component')
+        next()
+    }
 }
 </script>
