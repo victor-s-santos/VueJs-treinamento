@@ -13,8 +13,14 @@
 <script>
 export default {
     props: ['id'],
+    data(){
+        return{
+            nome: 'Victor Santos Silva'
+        }
+    },
     beforeRouteEnter(to, from, next){
         console.log('Executando beforeRouteEnter, de dentro do component')
+        console.log(`Nome: ${this.nome}`)
         if(to.query.autenticado === 'true'){
             next()
             return
