@@ -9,6 +9,8 @@ import Erro404 from './Views/Erro404.vue'
 import Erro404Contatos from './Views/contatos/Erro404Contatos.vue'
 import Login from './Views/login/Login.vue'
 
+import EventBus from './event-bus'
+
 Vue.use(VueRouter)
 
 const extractParameterId = route => ({
@@ -75,7 +77,9 @@ router.beforeResolve((to, from, next) => {
 }),
 
 router.beforeEach((to, from, next) => {
-  console.log('Executado BeforeEach')
+  // console.log('Executado BeforeEach')
+  const estaAutenticado = EventBus.autenticado
+  console.log(`Exibindo rotas: ${to.matched}`)
   if(to.meta.isAutenticated === true){
     console.log('Usuário autenticado.')
   }else{
