@@ -10,6 +10,11 @@
 
 <script>
 export default {
+    data(){
+        return{
+            nome: 'Victor Santos Silva'
+        }
+    },
     props: {
         id:{
             type: Number,
@@ -18,6 +23,7 @@ export default {
     },
     beforeRouteUpdate(to, from, next){
         console.log('Executando beforeRouteUpdate de dentro do component')
+        console.log(`Não necessito de um callback para acessar a instância vue ${this.nome}`)
         next()
     }
     // data(){
