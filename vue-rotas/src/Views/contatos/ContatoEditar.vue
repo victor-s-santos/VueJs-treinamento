@@ -21,13 +21,18 @@ export default {
     beforeRouteEnter(to, from, next){
         console.log('Executando beforeRouteEnter, de dentro do component')
         //console.log(`Nome: ${this.nome}`)
-        if(to.query.autenticado === 'true'){
-            next((instanciavuedocomponent) => {
-                console.log(`Nome: ${instanciavuedocomponent.nome}`)
-            })
-            return
-        }
-        next('/contatos')
+        // if(to.query.autenticado === 'true'){
+        //     next((instanciavuedocomponent) => {
+        //         console.log(`Nome: ${instanciavuedocomponent.nome}`)
+        //     })
+        //     return
+        // }
+        //next('/contatos')
+        next()
+    },
+    beforeRouteLeave(to, from, next){
+        console.log('Executando um beforeRouteLeave! Será chamado sempre ao sair da página.')
+        next()
     }
 }
 </script>
