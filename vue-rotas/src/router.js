@@ -56,5 +56,12 @@ const router = new VueRouter({
     
   ]
 })
+router.beforeEach((to, from, next) => {
+  console.log('Executado BeforeEach')
+  next()
+})
+router.afterEach((to, from) => {
+  console.log('Executado afterEach')
+})
 
 export default router
