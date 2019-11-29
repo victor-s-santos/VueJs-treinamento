@@ -21,16 +21,18 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   scrollBehavior(to, from, savedPosition){
     return new Promise((resolve, reject) => {
-      if(savedPosition){
-        return resolve(savedPosition)
-      }
-      if(to.hash){
-        return resolve({
-          selector: to.hash,
-          offset: {x: 0, y: 0}
-        })
-      }
-      return resolve({x: 0, y: 0})
+      setTimeout(() => {
+        if(savedPosition){
+          return resolve(savedPosition)
+        }
+        if(to.hash){
+          return resolve({
+            selector: to.hash,
+            offset: {x: 0, y: 0}
+          })
+        }
+        return resolve({x: 0, y: 0})
+      }, 2000)
     })
   },
   routes: [
