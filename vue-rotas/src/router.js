@@ -81,7 +81,7 @@ router.beforeEach((to, from, next) => {
   const estaAutenticado = EventBus.autenticado
   //console.log("As rotas:", to.matched)
   if(to.matched.some(rota => rota.meta.requerAutenticacao)){//rotas que requerem autenticação
-    if(!requerAutenticacao){
+    if(!estaAutenticado){
       next({
         path:'/login',
         query:{ redirecionar: to.fullPath }
