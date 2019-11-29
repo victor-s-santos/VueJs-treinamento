@@ -45,7 +45,7 @@ export default {
         }
     },
     created(){
-        this.contaos = EventBus.contatos
+        this.contatos = EventBus.contatos
     },
     methods:{
         voltar(){
