@@ -14,6 +14,15 @@ export default new Vue({
         this.$on('autenticar', (autenticado) => {
             this.autenticado = autenticado
         })
+    },
+    methods:{
+        buscarContato(id){
+            return Object.assign({}, this.contatos.find(c => c.id === id))
+        },
+        editarContato(contato){
+            const indice = this.contatos.findIndex(c => c.id === contato.id)
+            this.contatos.splice(indice, 1, contato)
+        }
     }
 
 })
