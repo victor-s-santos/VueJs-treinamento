@@ -1,16 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 //import Contatos from './Views/contatos/Contatos.vue'
-import ContatosHome from './Views/contatos/ContatosHome.vue'
-import Home from './Views/Home.vue'
-import ContatoDetalhes from './Views/contatos/ContatoDetalhes.vue'
-import ContatoEditar from './Views/contatos/ContatoEditar.vue'
+//import ContatosHome from './Views/contatos/ContatosHome.vue'
+//import ContatoDetalhes from './Views/contatos/ContatoDetalhes.vue'
+//import ContatoEditar from './Views/contatos/ContatoEditar.vue'
 import Erro404 from './Views/Erro404.vue'
 import Erro404Contatos from './Views/contatos/Erro404Contatos.vue'
 import Login from './Views/login/Login.vue'
-
 import EventBus from './event-bus'
-
+//lazy loading de maneira mais bonita
+const Home = () => import('./Views/Home.vue')
+const ContatosHome = () => import('./Views/contatos/ContatosHome.vue')
+const ContatoDetalhes = () => import('./Views/contatos/ContatoDetalhes.vue')
+const ContatoEditar = () => import('./Views/contatos/ContatoEditar.vue')
 Vue.use(VueRouter)
 
 const extractParameterId = route => ({
@@ -32,12 +34,13 @@ const router = new VueRouter({
           })
         }
         return resolve({x: 0, y: 0})
-      }, 2000)
+      },)
     })
   },
   routes: [
     { path: '/contatos', 
-      component: () => import('./Views/contatos/Contatos.vue'), 
+      component: () => import('./Views/contatos/Contatos.vue'),
+      //só será carregado o component acima quando o usuário visitar está rota 
       alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       props:(route) => {
         const busca = route.query.busca
