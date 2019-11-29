@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Contatos from './Views/contatos/Contatos.vue'
+//import Contatos from './Views/contatos/Contatos.vue'
 import ContatosHome from './Views/contatos/ContatosHome.vue'
 import Home from './Views/Home.vue'
 import ContatoDetalhes from './Views/contatos/ContatoDetalhes.vue'
@@ -37,7 +37,7 @@ const router = new VueRouter({
   },
   routes: [
     { path: '/contatos', 
-      component: () => Promise.resolve({ template: ''}), 
+      component: () => import('./Views/contatos/Contatos.vue'), 
       alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       props:(route) => {
         const busca = route.query.busca
