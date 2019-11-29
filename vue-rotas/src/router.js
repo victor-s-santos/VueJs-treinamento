@@ -10,9 +10,10 @@ import Login from './Views/login/Login.vue'
 import EventBus from './event-bus'
 //lazy loading de maneira mais bonita
 const Home = () => import('./Views/Home.vue')
-const ContatosHome = () => import('./Views/contatos/ContatosHome.vue')
-const ContatoDetalhes = () => import('./Views/contatos/ContatoDetalhes.vue')
-const ContatoEditar = () => import('./Views/contatos/ContatoEditar.vue')
+//agrupando com chunkname, assim tudo carrega junto, ao carregar contatos
+const ContatosHome = () => import(/* webpackChunkName: "contatos" */ './Views/contatos/ContatosHome.vue')
+const ContatoDetalhes = () => import(/* webpackChunkName: "contatos" */ './Views/contatos/ContatoDetalhes.vue')
+const ContatoEditar = () => import(/* webpackChunkName: "contatos" */ './Views/contatos/ContatoEditar.vue')
 Vue.use(VueRouter)
 
 const extractParameterId = route => ({
