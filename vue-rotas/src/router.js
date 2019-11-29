@@ -19,6 +19,9 @@ const extractParameterId = route => ({
 const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
+  scrollBehavior(to, from, savedPosition){
+    return{x: 0, y:250}
+  },
   routes: [
     { path: '/contatos', 
       component: Contatos, 
