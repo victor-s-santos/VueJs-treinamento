@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="font-weight-light">Contatos mano</h3>
+        <h3 class="font-weight-light">Contatos</h3>
         <div class="form-group">
             <input 
                 type="search" 
