@@ -29,7 +29,7 @@
         class="btn btn-info mb-2 mr-2">
           Contato 2
         </router-link>
-      <transition name="escorrega" mode="out-in">
+      <transition name="slide" mode="out-in">
         <router-view></router-view>
       </transition>
     </div>
