@@ -20,16 +20,18 @@ const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   scrollBehavior(to, from, savedPosition){
-    if(savedPosition){
-      return savedPosition
-    }
-    if(to.hash){
-      return{
-        selector: to.hash
+    return new Promise((resolve, reject) => {
+      if(savedPosition){
+        return resolve(savedPosition)
       }
-    }
-    return {x: 0, y: 0}
-    
+      if(to.hash){
+        return resolve({
+          selector: to.hash,
+          offset: {x: 0, y: 0}
+        })
+      }
+      return resolve({x: 0, y: 0})
+    })
   },
   routes: [
     { path: '/contatos', 
