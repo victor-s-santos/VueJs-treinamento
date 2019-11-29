@@ -24,6 +24,7 @@
 
 <script>
 import ContatosListaUnitario from './ContatosListaUnitario.vue'
+import EventBus from './../../event-bus'
 
 export default {
     components:{
@@ -32,12 +33,7 @@ export default {
     props: ['busca'],
     data(){
         return {
-            contatos: [
-                {id: 1, nome: 'Marie Curie', email: 'marie@curie.com'},
-                {id: 2, nome: 'Nicola Tesla', email: 'nicola@tesla.com'},
-                {id: 3, nome: 'Leonardo Davinci', email: 'leonardo@davinci.com'},
-                {id: 4, nome: 'Isaac Newton', email: 'isaac@newton.com'},
-            ]
+            contatos: []
         }
     },
     computed:{
@@ -47,6 +43,9 @@ export default {
                 ?this.contatos 
                 : this.contatos.filter(c => c.nome.toLowerCase().includes(busca.toLowerCase()))
         }
+    },
+    created(){
+        this.contaos = EventBus.contatos
     },
     methods:{
         voltar(){
