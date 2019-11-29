@@ -1,6 +1,7 @@
 <template>
     <div>
         <h3 class="font-weight-light">Detatlhes do Contato {{id}}</h3>
+        <div style="height: 900px"></div>
         <h4 class="font-weight-light">Parâmetros do Contato {{parametros}}</h4>
         <router-link
             :to="`/contatos/${id}/editar`"
