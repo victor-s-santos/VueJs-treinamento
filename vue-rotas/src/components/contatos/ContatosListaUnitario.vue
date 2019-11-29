@@ -5,8 +5,11 @@
     <li>
         <span>{{ contato.nome }}</span>
         <router-link 
-        :to="{ path: `/contatos/${contato.id}`}"
-        class="btn btn-info btn-sm float-right">Saber mais</router-link>
+            :to="{ 
+                path: `/contatos/${contato.id}`,
+                hash:'#parametros'
+            }"
+            class="btn btn-info btn-sm float-right">Saber mais</router-link>
         <!-- <button 
             class="btn btn-info btn-sm float-right"
             @click="verdetalhes">
