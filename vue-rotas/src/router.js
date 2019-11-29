@@ -37,7 +37,7 @@ const router = new VueRouter({
   },
   routes: [
     { path: '/contatos', 
-      component: Contatos, 
+      component: () => Promise.resolve({ template: ''}), 
       alias: ['/meus-contatos', '/meus-fisicos', '/nobel'],
       props:(route) => {
         const busca = route.query.busca
