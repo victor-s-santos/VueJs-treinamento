@@ -24,7 +24,7 @@
                 @click="$router.back()">Voltar</button>
 
         <button type="submit" 
-            class="btn btn-success"></button>
+            class="btn btn-success mt-4 nb-4 mr-2">Salvar</button>
         </form>
     </div>
 </template>
