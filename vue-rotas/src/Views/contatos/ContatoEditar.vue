@@ -23,7 +23,8 @@
                 class="btn btn-secondary mt-4 nb-4 mr-2"
                 @click="$router.back()">Voltar</button>
 
-        <button type="submit" class="btn btn-success"></button>
+        <button type="submit" 
+            class="btn btn-success"></button>
         </form>
     </div>
 </template>
@@ -46,6 +47,13 @@ export default {
         console.log('Executando um beforeRouteLeave! Será chamado sempre ao sair da página.')
         const confirma = window.confirm('Você tem certeza que gostaria de sair da página?')
         next(confirma)
+    },
+    methods:{
+        salvar(){
+            EventBus.editarContato(this.contao)
+            this.$router.push('/contatos')
+        }
+
     }
 }
 </script>
