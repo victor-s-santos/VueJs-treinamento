@@ -35,7 +35,8 @@ export default {
     */
    beforeRouteEnter(to, from, next){
        next(vm => {
-           vm.contato = EventBus.buscarContato(vm.id)
+           //vm.contato = EventBus.buscarContato(vm.id)
+           vm.contato = EventBus.buscarContato(+to.params.id)
        })
    },
    beforeRouteUpdate(to, from, next){
