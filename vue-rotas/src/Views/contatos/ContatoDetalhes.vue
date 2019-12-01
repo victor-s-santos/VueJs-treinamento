@@ -40,6 +40,7 @@ export default {
        })
    },
    beforeRouteUpdate(to, from, next){
+       this.contato = EventBus.buscarContato(+to.params.id)
        next()
    }
 }
