@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import EventBus from './../../event-bus'
+
 export default {
     data(){
         return{
@@ -25,6 +27,9 @@ export default {
             type: Number,
             required: true
         }
+    },
+    created(){
+        this.contato = EventBus.buscarContato(this.id)
     },
     beforeRouteUpdate(to, from, next){
     }
