@@ -11,25 +11,20 @@
     </div>
 </template>
 <script>
+import EventBus from './../../event-bus'
+
 export default {
     props: ['id'],
     data(){
         return{
-            nome: 'Victor Santos Silva'
+            contato: undefined
         }
     },
     beforeRouteEnter(to, from, next){
-        console.log('Executando beforeRouteEnter, de dentro do component')
-        //console.log(`Nome: ${this.nome}`)
-        // if(to.query.autenticado === 'true'){
-        //     next((instanciavuedocomponent) => {
-        //         console.log(`Nome: ${instanciavuedocomponent.nome}`)
-        //     })
-        //     return
-        // }
-        //next('/contatos')
-        next()
-    },
+       next(vm => {
+           vm.contato = EventBus.buscarContato(+to.params.id)
+       })
+   },
     beforeRouteLeave(to, from, next){
         console.log('Executando um beforeRouteLeave! Será chamado sempre ao sair da página.')
         const confirma = window.confirm('Você tem certeza que gostaria de sair da página?')
