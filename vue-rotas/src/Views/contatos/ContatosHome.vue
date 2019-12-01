@@ -1,6 +1,13 @@
 <template>
-    <div>
-        <h3 class="font-weight-light">Página home da lista de contatos.</h3>
-        <p>Visualização de detalhes e edição dos contatos.</p>
-    </div>
+    <contatos-lista :busca="busca" />  
 </template>
+
+<script>
+import ContatosLista from './../../components/contatos/ContatosLista.vue'
+export default {
+    components:{
+        ContatosLista
+    }, 
+    props: ['busca']
+}
+</script>
