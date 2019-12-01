@@ -24,5 +24,5 @@ export default new Vue({
             this.contatos.splice(indice, 1, contato)
         }
     }
-
+//find retorna o registro; findIndex returna o indice
 })
