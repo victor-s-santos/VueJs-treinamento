@@ -1,8 +1,10 @@
 <template>
-    <div>
-        <h3 class="font-weight-light">Detatlhes do Contato {{id}}</h3>
-        <div style="height: 900px"></div>
-        <h4 id="parametros" class="font-weight-light">Parâmetros do Contato {{parametros}}</h4>
+    <div v-if="contato">
+        <h3 class="font-weight-light">Nome do Contato {{contato.nome}}</h3>
+        <p>Email: {{contato.email}}</p>
+        <button 
+            class="btn btn-secondary.mr-2" 
+            @click="$router.back()">Voltar</button>
         <router-link
             :to="`/contatos/${id}/editar`"
             class="btn btn-primary">
@@ -15,7 +17,7 @@ export default {
     data(){
         return{
             nome: 'Victor Santos Silva',
-            parametros: this.$route.params
+            contato: undefined
         }
     },
     props: {
@@ -25,10 +27,6 @@ export default {
         }
     },
     beforeRouteUpdate(to, from, next){
-        console.log('Executando beforeRouteUpdate de dentro do component')
-        console.log(`Não necessito de um callback para acessar a instância vue ${this.nome}`)
-        this.parametros = to.params
-        next()
     }
     // data(){
     //     return {
