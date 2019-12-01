@@ -1,13 +1,30 @@
 <template>
-    <div>
+    <div v-if="contato">
         <h3 
         class="font-weight-light">
-        Editar contato: {{id}}
+        Nome do Contato: {{contato.nome}}
         </h3>
-        <button 
-        class="btn btn-secondary mt-4 mb-4"
-        @click="$router.back()">
-        Voltar</button>
+        <form @submit.prevent="salvar">
+            <div ckass="form-group">
+                <label>Nome:</label>
+                <input type="text"
+                    class="form-control"
+                    placeholder="Insira um nome"
+                    v-model="contato.nome">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email"
+                    class="form-control"
+                    placeholder="Insira um email"
+                    v-model="contato.email">
+            </div>
+            <button type="button"
+                class="btn btn-secondary mt-4 nb-4 mr-2"
+                @click="$router.back()">Voltar</button>
+
+        <button type="submit" class="btn btn-success"></button>
+        </form>
     </div>
 </template>
 <script>
