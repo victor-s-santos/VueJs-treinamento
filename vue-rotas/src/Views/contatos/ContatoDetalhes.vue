@@ -28,24 +28,18 @@ export default {
             required: true
         }
     },
+    /*
     created(){
         this.contato = EventBus.buscarContato(this.id)
     },
-    beforeRouteUpdate(to, from, next){
-    }
-    // data(){
-    //     return {
-    //         id: this.$route.params.id
-    //     }
-    // },
-     // watch: {
-     //     '$route'(to, from){
-     //         this.id = to.params.id
-     //     }
-     // },
-    // beforeRouteUpdate(to, from, next){
-    //     this.id = to.params.id
-    //     next()
-    // }
+    */
+   beforeRouteEnter(to, from, next){
+       next(vm => {
+           vm.contato = EventBus.buscarContato(vm.id)
+       })
+   },
+   beforeRouteUpdate(to, from, next){
+       next()
+   }
 }
 </script>
